@@ -5,7 +5,7 @@
       <description>Pipes Output</description>
       <link>http://pipes.yahoo.com/pipes/pipe.info?_id=790c1cc25610e6b571d4857eaeb44fa4</link>
       <atom:link rel="next" href="http://pipes.yahoo.com/pipes/pipe.run?_id=790c1cc25610e6b571d4857eaeb44fa4&amp;_render=rss&amp;page=2" />
-      <pubDate>Mon, 20 Oct 2014 05:47:52 +0000</pubDate>
+      <pubDate>Tue, 21 Oct 2014 11:05:21 +0000</pubDate>
       <generator>http://pipes.yahoo.com/pipes/</generator>
       <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/jbossbuzz" /><feedburner:info uri="jbossbuzz" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /><item>
          <title>JBoss Tools Integration Stack 4.1.6.Final / JBoss Developer Studio Integration Stack 7.0.3.GA</title>
@@ -3729,4 +3729,4 @@ Petals Studio was also the pretext to start using <a rel="nofollow" target="_bla
          </media:content>
       <feedburner:origLink>http://mickaelistria.wordpress.com/2012/01/31/goodbye-petalslink-hello-jbossred-hat/</feedburner:origLink></item>
    </channel>
-</rss><!-- fe6.yql.bf1.yahoo.com compressed/chunked Mon Oct 20 05:47:45 UTC 2014 -->
+</rss><!-- fe4.yql.bf1.yahoo.com compressed/chunked Tue Oct 21 11:05:21 UTC 2014 -->
