@@ -3,6 +3,7 @@
 	<name>eExhibition</name>
 	<comment></comment>
 	<projects>
+		<project>eExhibitionEAR</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
