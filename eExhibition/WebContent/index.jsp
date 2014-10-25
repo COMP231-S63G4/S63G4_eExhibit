@@ -27,15 +27,12 @@
     
 								<div id="content_area"><!--starting of container area which contain the icon,tagline and mission statement-->
 											<div id="left">
-													<img src="images/3.jpg"><!--</br></br>-->
+													<img src="images/11.jpg"><!--</br></br>-->
 					
 													<!--<a href="project.html"> <button>next step </button> </a> -->
 											</div>				
 		 
-											<!--<div id="right"><h1 id="text">WELCOME TO LEARN</h1>
-													<h2 id="text">Navigating to future success<h2>
-													<p id="text"> I am very postive ,optimistic towards my life goal. I am olways ready to put my hard efforts towards my life goals.I am olways trying to learn from differnt sources. I want to become a sucessful in my life.My life aim is to work at the postion of software engineering. I always put my efforts to suceed in a goal.My intereest area is web designing.I have created various projecs on the web technology like html, php, jquery, javacsript. i have plans for my sucessful future. In future, i will choose the career in web designing.</p>
-											</div>-->
+											
 								</div> <!-- end of content_area -->
     
 					<div id="content_area1">

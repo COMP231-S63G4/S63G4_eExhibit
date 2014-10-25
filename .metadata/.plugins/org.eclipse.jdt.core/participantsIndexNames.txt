@@ -1,3 +1,0 @@
-INDEX VERSION 1.126
-C:\Users\mw\Documents\GitHub\S63G4_eExhibit\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\762401772.index
-\eExhibition\src
