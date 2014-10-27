@@ -1,10 +1,10 @@
 <html> <!--starting of html-->
 	<head><!--starting of head-->
-		<title>Eshopping</title>
-			<link href="stylesheet.css" rel="stylesheet" type="text/css" />
-			<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-			<script src="javascript.js"></script>
-	</head><!--end of head-->
+		<title>eExhibition</title>
+			<link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
+			<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"></script>
+			<script src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
+		</head><!--end of head-->
 			<body><!--starting of body-->
 					<div id="container"><!--starting of container-->
 
@@ -14,13 +14,13 @@
     
 								<div id="menu"><!--starting of menu-->
 												<ul><!--starting of list-->
-													<li><a class="current"  href="index.html">Home</a></li><!--insrtion of menu in list-->
-													<li><a  href="AboutUs.html">About us</a></li>
-													<li><a  href="Gallery.html">Gallery</a></li>
-												    <li><a  href="Services.html">Services</a></li>
-													<li><a  href="Events.html">Events</a></li>
-													<li><a  href="ContactUs.html">Contact Us</a></li>
-			                                        <li><a  href="BusinessContacts.html">Business contacts</a></li>
+													<li><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li><!--insrtion of menu in list-->
+													<li><a  class="current"  href="${pageContext.request.contextPath}/AboutUs.jsp">About us</a></li>
+													<li><a  href="${pageContext.request.contextPath}/Gallery.jsp">Gallery</a></li>
+												    <li><a  href="${pageContext.request.contextPath}/Services.jsp">Services</a></li>
+													<li><a  href="${pageContext.request.contextPath}/Events.jsp">Events</a></li>
+													<li><a  href="${pageContext.request.contextPath}/ContactUs.jsp">Contact Us</a></li>
+			                                        <li><a  href="${pageContext.request.contextPath}/BusinessContacts.jsp">Business contacts</a></li>
 												</ul><!--end of list-->
     
 								</div> <!-- end of menu -->  
@@ -55,12 +55,12 @@
 
                       
                         <div id="ContactRight">
-                            <a href="index.html"><img src="images/aboutUsPic.jpg" style="width:300px;height:300px" /></a>
+                            <a href="${pageContext.request.contextPath}/index.html"><img src="${pageContext.request.contextPath}/images/aboutUsPic.jpg" style="width:300px;height:300px" /></a>
                         </div>
 				    </div> <!-- end of content_area1-->
     
 				<div id="footer">    
-								Copyright Â© 2014 <strong>eExhibition</strong>
+								Copyright © 2014 <strong>eExhibition</strong>
 				</div> <!-- end of footer -->
     
 		</div> <!-- end of container -->

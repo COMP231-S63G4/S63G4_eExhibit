@@ -17,7 +17,7 @@
 
 </head>
 <body>
-<%-- <%@ include file="banner.jsp" %> Master Page--%>
+<%-- <%@ include file="banner.jsp" %> --%>
 <br/>
 <div style="text-align:center">
 	<h1>...OOPs Error!!! We are sorry...</h1>
