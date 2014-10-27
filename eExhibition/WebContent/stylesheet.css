@@ -1,0 +1,248 @@
+body {
+	margin: 0;
+	padding: 0;
+	line-height: 1.5em;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+		
+
+/* starting of container */
+#container{
+	width: 980px;
+	margin: 0 auto;
+	padding: 0px 0px 0px 0px;
+}/* end of container  */
+
+/* starting of header */
+#header {
+	width: 980px;
+	height: 85px;
+	padding: 0 0px;
+	background: url(images/header.png) no-repeat;
+}/* end of header*/
+
+/* starting of tile  */
+ #title {
+	padding: 40px 0px 40px 30px;
+	font-size: 40px;
+    color: #ffffff;
+	font-weight: normal;
+    font-family:cursive;
+}/* end of title */
+
+#banner {
+    width: 980px;
+	height: 95px;
+    margin-top:-4px;
+    background: url(images/header.png) no-repeat;
+}
+
+/* starting of menu */
+#menu {
+	clear: both;
+	width: 980px;
+	height: 65px;
+	background: url(images/menu.png) no-repeat;
+}
+
+
+#menu ul {
+	margin: 0px;
+	padding: 10px 0 0px 15px;
+	list-style: none;
+}
+
+#menu ul li{
+	display: inline;
+}
+
+#menu ul li a{
+	float: left;
+	padding: 12px 0 0 0;
+	width: 135px;
+	height: 27px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	color: #FFF;
+	outline: none;
+}
+
+#menu li a.current
+{
+background:url(images/color1.gif);
+color:white;
+} 
+/* end of menu  */
+
+ #leftside {
+ font-size: 13px;
+	color: #FC0;
+	font-weight: bold;	
+	text-decoration: none;
+ float:left ;
+width:63%;
+
+}
+#rightside {
+ float:right;
+ width:37%;
+ font-size: 20px;
+ font-family:"Times New Roman", Georgia, Serif;
+	color: #99CC66;
+	font-weight: bold;	
+	text-decoration: none;
+ 
+ 
+ }
+ 
+
+
+#content_area1 {
+	clear: both;
+	width: 970px;
+    min-height: 400px;
+	padding: 0px 00px 0px 00px;
+	background: url(images/panel.png) repeat-y;	
+}
+
+
+/*slider*/
+#slider {
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto 0 auto;
+  border-radius: 4px;
+
+}
+
+#slider ul {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  list-style: none;
+}
+
+#slider ul li {
+  position: relative;
+  display: block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: 400px;
+  height: 350px;
+  background: #ccc;
+  text-align: center;
+  line-height: 300px;
+}
+
+a.control_prev, a.control_next {
+  position: absolute;
+  top: 40%;
+  z-index: 999;
+  display: block;
+  padding: 4% 3%;
+  width: auto;
+  height: auto;
+  background: black; 
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+a.control_prev:hover, a.control_next:hover {
+  opacity: 1;
+  -webkit-transition: all 0.2s ease;
+}
+
+a.control_prev {
+  border-radius: 0 2px 2px 0;
+}
+
+a.control_next {
+  right: 0;
+  border-radius: 2px 0 0 2px;
+}
+
+.slider_option {
+  position: relative;
+  margin: 10px auto;
+  width: 300px;
+  font-size: 18px;
+}
+/* end of slider */
+
+
+
+/* footer */
+#footer {
+	clear: both;
+	color: #ffffff;
+	width: 960px;
+	height: 60px;
+	padding: 30px 10px 0 10px;
+	text-align: center;
+	background: url(images/footer.png) no-repeat;
+}
+
+#ContactLeft 
+{
+
+float:left ;
+width:50%;
+padding:40px 0px 0px 40px;
+font-size: 18px;
+ font-family:"Times New Roman", Georgia, Serif;
+	color: white;
+	font-weight: bold;	
+	text-decoration: none;
+}
+#AboutUsLeft 
+{
+
+float:left ;
+width:50%;
+padding:40px 0px 0px 40px;
+font-size: 16px;
+ font-family:"Times New Roman", Georgia, Serif;
+	color: white;
+	font-weight: bold;	
+	text-decoration: none;
+}
+#ContactRight 
+{
+    float:right ;
+    width:40%;
+    padding:50px 0px 0px 0px;
+
+
+}
+#ContactForm
+{
+    font-size: 18px;
+    font-family:"Times New Roman", Georgia, Serif;
+	color: white;
+	font-weight: bold;	
+	text-decoration: none;
+    }
+#ContactForm1
+{
+    font-size: 18px;
+    font-family:"Times New Roman", Georgia, Serif;
+	color: white;
+	font-weight: bold;	
+	text-decoration: none;
+    }
+table, th, td {
+
+    padding: 5px;
+}
+
