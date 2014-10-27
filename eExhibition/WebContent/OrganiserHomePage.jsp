@@ -19,10 +19,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+<style type="text/css">
+		
+		input.viewDetails{
+			background-image:url(${pageContext.request.contextPath}/images/viewOrganisers.png);
+			width:100px;
+			height:100px;
+			border:0;
+		}
+	</style>
   </head>
   
-  <body>
+  <body style="text-align:center;">
    Hello Organiser <br>
+    <form action="${pageContext.request.contextPath}/organiserResponseManager" method="post">
+   <table align="center">
+		    <tr>
+		    
+		    <td><input   class="viewDetails" value="">
+		    <br/><input type="Submit" name="action"  value="My Details"/></td>
+		    </tr>
+	    </table>
+	    </form>
   </body>
 </html>
