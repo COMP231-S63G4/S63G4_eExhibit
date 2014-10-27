@@ -128,55 +128,9 @@ public class adminResponseManager extends HttpServlet {
 		}
 		
 		
-		else if(action.equals("Update Organizer"))
+		else if(action.equals("Update Organizer"))//Komal task
 		{
-			String uname=request.getParameter("uname").trim();
-			String password=request.getParameter("password").trim();
-			String oldUserId=request.getParameter("oldUserId").trim();//old password from hidden field 
 			
-			String name=request.getParameter("name").trim();
-			String email=request.getParameter("email").trim();
-			String phone=request.getParameter("phone").trim();
-			String address=request.getParameter("address").trim();
-			int flag=1;
-			if(uname==""||password==""||name==""||email==""||phone==""||address=="")
-			{
-				request.setAttribute("errorMessage", "Organizer can not be updated because you are missing required fields...");
-				rd = request.getRequestDispatcher("/errorPage.jsp");
-				flag=0;//Go away
-			}
-			else if(lm.userNameExist(uname) ){//Will go if uname already exist
-				if((uname.equals(oldUserId)))
-				{
-					//This means user going to update his info but he does not changed uname
-				}
-				else{//if he change user name then find whether uname already exist
-				request.setAttribute("errorMessage", "Changes can not be made because Username already exists...");
-				rd = request.getRequestDispatcher("/errorPage.jsp");
-				flag=0;//Go away
-				}
-			}
-			
-			if(flag==1){
-				User organiser = null;
-			
-				organiser=new User(uname,name,email,phone,address);
-			
-					User updatedOrganiser=am.updateOrganiser(organiser, oldUserId, password);
-				 if(updatedOrganiser==null){
-				    	
-				    	request.setAttribute("errorMessage", "Something went wrong...");
-						rd = request.getRequestDispatcher("/errorPage.jsp");
-				    }
-				    else{
-				  request.setAttribute("password", password); 
-				  request.setAttribute("uname", uname); 
-				  request.setAttribute("organiser", updatedOrganiser);
-				  request.setAttribute("CALLER", "Update Organiser");
-				  rd = request.getRequestDispatcher("/displayOrganiser.jsp");
-				    }
-			
-			}
 			
 			
 		}
@@ -184,44 +138,9 @@ public class adminResponseManager extends HttpServlet {
 		
 		
 		
-		else if(action.equals("Add"))
+		else if(action.equals("Add"))//Komal task
 		{
-			String uname=request.getParameter("uname").trim();
-			String password=request.getParameter("password").trim();
-			String name=request.getParameter("name").trim();
-			String email=request.getParameter("email").trim();
-			String phone=request.getParameter("phone").trim();
-			String address=request.getParameter("address").trim();
-			if(uname==""||password==""||name==""||email==""||phone==""||address=="")
-			{
-				request.setAttribute("errorMessage", "Organizer can not be added because you are missing required fields...");
-				rd = request.getRequestDispatcher("/errorPage.jsp");
-			}
-			else if(lm.userNameExist(uname))
-			{
-				request.setAttribute("errorMessage", "Username already exists...");
-				rd = request.getRequestDispatcher("/errorPage.jsp");
-			}
-			else{
-			User organiser = null;
 			
-				organiser=new User(uname,name,email,phone,address);
-			
-					User addedOrganiser=am.addOrganiser(organiser, password);
-				 if(addedOrganiser==null){
-				    	
-				    	request.setAttribute("errorMessage", "Something went wrong...");
-						rd = request.getRequestDispatcher("/errorPage.jsp");
-				    }
-				    else{
-				  request.setAttribute("password", password); 
-				  request.setAttribute("uname", uname); 
-				 request.setAttribute("organiser", addedOrganiser);
-				 request.setAttribute("CALLER", "Add Organiser");
-				 rd = request.getRequestDispatcher("/displayOrganiser.jsp");
-				    }
-			
-			}
 		}
 		else{
 			request.setAttribute("errorMessage", action);
