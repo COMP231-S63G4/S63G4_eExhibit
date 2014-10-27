@@ -37,9 +37,12 @@
 	</h2>
 	<br/>
 	<c:if test="${requestScope.CALLER=='Display Organiser'}">
-		
+		<c:if test="${requestScope.Role=='Organiser'}">
+		 <form action="${pageContext.request.contextPath}/organiserResponseManager" method="post">
+		</c:if>
+		<c:if test="${requestScope.Role!='Organiser'}">
 		      <form action="${pageContext.request.contextPath}/adminResponseManager" method="post">
-		 
+		  </c:if>
 		 <table  align="center" frame="box" >
 		<tbody>
 		<tr>
@@ -103,9 +106,12 @@
 		</table>
 		</c:if>
 		<br/>
-	
+	<c:if test="${requestScope.Role=='Organiser'}">
+	<input type="button" value="Go Back" onclick="window.location.href='/eExhibition/OrganiserHomePage.jsp'"/>
+	</c:if>
+	<c:if test="${requestScope.Role!='Organiser'}">
 	<input type="button" value="Go Back" onclick="window.location.href='/eExhibition/AdminHomePage.jsp'"/>
-	
+	</c:if>
 </div>
 			
 </body>
