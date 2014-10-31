@@ -37,7 +37,7 @@
 				    <li><a  href="${pageContext.request.contextPath}/Services.jsp">Services</a></li>
 				    <li><a  href="${pageContext.request.contextPath}/Events.jsp">Events</a></li>
 				    <li><a  href="${pageContext.request.contextPath}/ContactUs.jsp">Contact Us</a></li>
-			        <li><a  href="${pageContext.request.contextPath}/BusinessContacts.jsp">Business contacts</a></li>
+			        <li><a  href="${pageContext.request.contextPath}/SignUp.jsp">Sign Up</a></li>
 			    </ul>
     
 		    </div> 
