@@ -8,7 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> 
 <title>Insert title here</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"/></script>
-
+<link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
+<script src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
 <script>
 	$(document).ready(function(){
 		  $("#autoGenerate").click(function(){
@@ -35,7 +36,7 @@
 
 </head>
 <body >
-<%-- <%@ include file="banner.jsp" %> --%>
+ <%@ include file="bannerTop.jsp" %> 
 <br/>
 <div  style="text-align: center;">
 <h3>-------Add Organizer-----</h3>
@@ -93,5 +94,7 @@
 	</form>
 	<br/>
 	</div>
+	
+ <%@ include file="bannerBottom.jsp" %>
 </body>
 </html>

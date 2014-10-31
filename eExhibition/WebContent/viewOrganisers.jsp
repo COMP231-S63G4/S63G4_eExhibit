@@ -6,8 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"/></script>
+<link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
+<script src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
 </head>
 <body style="text-align:center;">
+<%@ include file="bannerTop.jsp" %> 
 <h2>------All Organizers-----</h2>
 <table border="1" align="center">
 <tr>
@@ -17,7 +21,7 @@
 	
 	<form action="${pageContext.request.contextPath}/adminResponseManager" method="post">
 		<tr>
-		<th><input type="text" name="uname" style="border:none;" onfocus="this.blur();" value="<c:out value="${user.key}"></c:out>"/></th>
+		<th><input type="hidden" name="uname"   value="<c:out value="${user.key}"></c:out>"/><c:out value="${user.key}"></c:out></th>
 		<th><c:out value="${user.value.name}"></c:out></th>
 		<th><c:out value="${user.value.address}"></c:out></th>
 		<th><c:out value="${user.value.phone}"></c:out></th>
@@ -31,5 +35,6 @@
 
 
 </table>
+<%@ include file="bannerBottom.jsp" %> 	
 </body>
 </html>

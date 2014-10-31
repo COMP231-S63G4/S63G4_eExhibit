@@ -95,7 +95,7 @@
 					 CONTACT US ON :<br/> <br/>4167789675<br/><br/>
 					 
 					 EMAIL :<br/><br/>
-					 admin@exhibition.com
+					 contact@eexhibition.me
                             </form>
 					</div>
          
