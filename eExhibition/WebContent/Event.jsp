@@ -31,6 +31,11 @@
                             <textarea  name="comments" maxlength="1000" cols="16"rows="6"></textarea>
                              </br>
                              </br>
+                             
+                             span style="color: black;">Event Location :&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </span>
+							<input type="Text" name="ELocation" />
+							<br/>
+							<br/>
 							<span style="color: black;">Start Date :&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
 							<input type="Text" name="Sdete" />
 							<br/>
