@@ -25,7 +25,7 @@ public class loginManager {
 	
 	}
 	//Return type(admn,exbt,rusr,orgn) if successful
-	public String validateLoginDetails(String uname,String password)
+	public String validateLoginDetails(String uname)//,String password)
 	{
 		
 		try {
@@ -38,7 +38,7 @@ public class loginManager {
 			while(rs.next())
 			{
 			        
-			        if((rs.getString(1).equals(uname))&&(rs.getString(2).equals(password)))
+			        if((rs.getString(1).equals(uname)))//&&(rs.getString(2).equals(password)))
 					{
 					  
 					  return rs.getString(3);

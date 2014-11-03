@@ -141,7 +141,7 @@ public class adminManager implements adminCatalog {
 
 
 	@Override
-	public ArrayList<User> getAllUsers() {
+	public ArrayList<User> getAllUsers(String type) {
 		ArrayList<User> users=new ArrayList<User>();
 		try {
 			    
@@ -149,7 +149,7 @@ public class adminManager implements adminCatalog {
 				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 			    Statement st=con.createStatement();
 				
-				ResultSet rs=st.executeQuery("Select uname,name,address,phone,email from users");
+				ResultSet rs=st.executeQuery("Select users.uname,name,address,phone,email from users,login where users.uname=login.uname and type='"+type+"' ");
 				while(rs.next())
 				{
 					users.add(new User(rs.getString(1),rs.getString(2),rs.getString(5),rs.getString(4),rs.getString(3)));

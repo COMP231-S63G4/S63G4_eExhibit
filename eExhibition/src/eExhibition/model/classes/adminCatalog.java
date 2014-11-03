@@ -15,5 +15,5 @@ public interface adminCatalog {
 	public User deleteOrganiser(String uname);
 	public User getOrganiser(String uname);
 	public String getPasswordOfUserName(String uname);
-	public ArrayList<User> getAllUsers();
+	public ArrayList<User> getAllUsers(String type);
 }

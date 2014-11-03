@@ -62,14 +62,14 @@
 					 <br /><br />
 					 
                      
-                         <h2 style="color:#99CC66">Login Form</h2>
+                         <h2 style="color:#99CC66">Entry Point</h2>
 					     <br /><br />
 
 					     Username:&nbsp; <input type="text" name="name" />
-                         <br><br>
-					     Password:&nbsp; <input type="password" name="pass"  />
+                        <!-- <br><br>
+					     Password:&nbsp;  <input type="password" name="pass"  /> -->
 					     <br/><br/>
-					     <input type="submit" name="login"  value="Sign In" style="width: 75px; margin-left: 111px" />
+					     <input type="submit" name="login"  value="Take In" style="width: 75px; margin-left: 111px" />
                          <br /><br />
                      
 					 </form>
