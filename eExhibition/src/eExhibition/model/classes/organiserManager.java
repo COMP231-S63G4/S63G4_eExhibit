@@ -7,6 +7,24 @@ import java.sql.Statement;
 import eExhibition.data.classes.User;
 
 public class organiserManager implements organiserCatalog {
+	private static organiserManager om = null;	
+
+	public synchronized static organiserManager getInstance() {
+		if (om == null ) {
+			
+			om = new organiserManager();
+			
+		}
+		return om;
+	}
+
+	
+	
+	private organiserManager() {
+		//Just to be sure nobody outside make object of adminManager Class- Private Constructor
+	
+	}
+
 
 	@Override
 	public User updateOrganiserDetail(User organiser, String oldUserId,	String password) {

@@ -50,7 +50,7 @@
 <legend>
 <h1 style="color:white;">Create Account</h1></legend>
 
-<form action="${pageContext.request.contextPath}/exhibitorResponseManager"  method="post">
+<form action="${pageContext.request.contextPath}/RegistrationManager"  method="post">
 <br>
 <br>
 <img src="${pageContext.request.contextPath}/images/registerPic.jpg" width="300px" height="425px" style="margin-left: 50px"/>
@@ -88,11 +88,10 @@
 		
 			<th>Type: </th>
 			<td>
-			<select style="width:160px;">
+			<select style="width:160px;" name="role">
 			  <option >--Select--</option>
-			  <option value="usr">Registered User</option>
-			  <option value="orgn">Organiser</option>
-			  <option value="exb">Exhibitor</option>
+			  <option value="rusr">Registered User</option>
+			  <option value="exbt">Exhibitor</option>
 			  
 			</select>
 			</td>
