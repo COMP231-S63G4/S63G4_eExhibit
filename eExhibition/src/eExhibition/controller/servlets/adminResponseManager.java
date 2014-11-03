@@ -94,7 +94,7 @@ public class adminResponseManager extends HttpServlet {
 	}
 		else if(action.equals("View Organizers")){
 			Map<String,User> userList = new HashMap<String,User>();
-			ArrayList<User> alist=am.getAllUsers();
+			ArrayList<User> alist=am.getAllUsers("orgn");//All organisers
 		
 			for(User u:alist)
 			{
