@@ -12,8 +12,20 @@
 	<script src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
 	
 <style type="text/css">
-		
 		input.viewDetails{
+			background-image:url(${pageContext.request.contextPath}/images/viewDetails.png);
+			width:100px;
+			height:100px;
+			border:0;
+		}
+		input.inviteExibitors{
+			background-image:url(${pageContext.request.contextPath}/images/inviteExibitors.png);
+			width:100px;
+			height:100px;
+			border:0;
+		}
+		
+		input.pendingRequest{
 			background-image:url(${pageContext.request.contextPath}/images/viewOrganisers.png);
 			width:100px;
 			height:100px;
@@ -31,7 +43,14 @@
 		    
 		    <td><input   class="viewDetails" value="">
 		    <br/><input type="Submit" name="action"  value="My Details"/></td>
+		    <td><input   class="inviteExibitors" value="">
+		    <br/><input type="Submit" name="action"  value="Invite Exhibitors"/></td>
+		    <td><input   class="pendingRequest" value="">
+		    <br/><input type="Submit" name="action"  value="Pending Requests"/></td>
+		    
 		    </tr>
+		    
+		     
 	    </table>
 	    </form>
 	    <%@ include file="bannerBottom.jsp" %> 	

@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import eExhibition.data.classes.Event;
 import eExhibition.data.classes.User;
 import eExhibition.model.classes.adminManager;
 import eExhibition.model.classes.loginManager;
+import eExhibition.model.classes.organiserManager;
 
 /**
  * Servlet implementation class adminResponseManager
@@ -66,6 +68,7 @@ public class organiserResponseManager extends HttpServlet {
 		String action = request.getParameter("action");
 		adminManager am=adminManager.getInstance();
 		loginManager lm=loginManager.getInstance();
+		organiserManager om=organiserManager.getInstance();
 		if(action.equals("My Details"))
 		{
 			String uname=(String) session.getAttribute("userName");
@@ -77,6 +80,37 @@ public class organiserResponseManager extends HttpServlet {
 			 request.setAttribute("Role", "Organiser");
 			 rd = request.getRequestDispatcher("/displayOrganiser.jsp");
 		}
+		else if(action.equals("Invite Exhibitors"))
+		{
+			Map<String, Event> events=om.getAllEvents();
+			request.setAttribute("events", events);
+			
+					
+			rd = request.getRequestDispatcher("/inviteExhibitorSelectEvent.jsp");
+		}
+		else if(action.equals("Invite"))
+		{
+			String[] exhibitors=request.getParameterValues("exhibitorIds");
+			ArrayList<String> al=new ArrayList<String>();	
+			String eventId=request.getParameter("eventId");
+			for(int i=0;i<exhibitors.length;i++)
+			{
+				al.add(exhibitors[i]);
+			}
+			om.inviteExhibitors(eventId, al);
+			rd = request.getRequestDispatcher("/OrganiserHomePage.jsp");
+		}
+		else if(action.equals("OK"))
+		{
+			
+			 String eventId=request.getParameter("events");			
+			 Event event=om.getEventById(eventId);			 
+			 request.setAttribute("event",event);
+			 Map<String, User>  exhibitors=om.getAllExhibitors();
+			 request.setAttribute("exhibitors",exhibitors);
+			 rd = request.getRequestDispatcher("/inviteExhibitorsforEvent.jsp");
+		}
+		 
 		else if(action.equals("Update Organizer"))
 		 {
 			String uname=request.getParameter("uname").trim();

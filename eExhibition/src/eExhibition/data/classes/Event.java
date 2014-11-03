@@ -22,67 +22,67 @@ public class Event {
 		this.endDate =endDate;
 		this.eventOrganizers= eventOrganizers;
 	}
-	String getEventId()
+	public String getEventId()
 	{
 		return eventId;
 	}
-	void setEventId(String eId)
+	public void setEventId(String eId)
 	{
 		eventId=eId;
 	}
 	
-	String getEventName()
+	public String getEventName()
 	{
 		return eventName;
 	}
-	void setEventName(String name)
+	public void setEventName(String name)
 	{
 		this.eventName=name;
 		
 	}
-	String getDetails()
+	public String getDetails()
 	{
 		return details;
 	}
-	void setDetails(String details)
+	public void setDetails(String details)
 	{
 		this.details=details;
 		
 	}
 	
-	String getLocation()
+	public String getLocation()
 	{
 		return location;
 	}
-	void setLocation(String location)
+	public void setLocation(String location)
 	{
 		this.location=location;
 		
 	}
 	
-	Date getStartDate()
+	public Date getStartDate()
 	{
 		return startDate;
 	}
-	void setStartDate(Date startDate)
+	public void setStartDate(Date startDate)
 	{
 		this.startDate=startDate;
 	}
 	
-	Date getEndDate()
+	public Date getEndDate()
 	{
 		return endDate;
 	}
-	void setEndDate(Date endDate)
+	public void setEndDate(Date endDate)
 	{
 		this.endDate=endDate;
 	}
 	
-	String getEventOrganizers()
+	public String getEventOrganizers()
 	{
 		return eventOrganizers;
 	}
-	void setEventOrganizers(String eventOrganizers)
+	public void setEventOrganizers(String eventOrganizers)
 	{
 		this.eventOrganizers=eventOrganizers;
 		
