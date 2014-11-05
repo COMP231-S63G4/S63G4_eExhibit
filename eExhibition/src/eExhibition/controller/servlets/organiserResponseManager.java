@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import eExhibition.data.classes.Event;
+import eExhibition.data.classes.ExhibitorEvent;
 import eExhibition.data.classes.User;
 import eExhibition.model.classes.adminManager;
 import eExhibition.model.classes.loginManager;
@@ -79,6 +80,14 @@ public class organiserResponseManager extends HttpServlet {
 			 request.setAttribute("CALLER", "Display Organiser");
 			 request.setAttribute("Role", "Organiser");
 			 rd = request.getRequestDispatcher("/displayOrganiser.jsp");
+		}
+		else if(action.equals("Pending Requests"))
+		{
+			ArrayList<ExhibitorEvent> requests=om.getAllPendingRequest();
+			request.setAttribute("requests", requests);
+			
+					
+			rd = request.getRequestDispatcher("/pendingRequestDecision.jsp");
 		}
 		else if(action.equals("Invite Exhibitors"))
 		{

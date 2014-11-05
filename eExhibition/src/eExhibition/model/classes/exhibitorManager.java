@@ -31,7 +31,7 @@ public class exhibitorManager implements exhibitorCatalog {
 		try {
 				    
 					Class.forName("com.mysql.jdbc.Driver");				
-					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 				    Statement st=con.createStatement();
 					st.executeUpdate("Insert into login(uname,password,type) values('"+exhibitor.getUserId()+"','"+password+"','exbt')");
 					st.executeUpdate("Insert into users(uname,name,email,phone,address) values('"+exhibitor.getUserId()+
@@ -59,7 +59,7 @@ public class exhibitorManager implements exhibitorCatalog {
 		try {
 				    
 					Class.forName("com.mysql.jdbc.Driver");				
-					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 				    Statement st=con.createStatement();
 					st.executeUpdate("Update login set uname='"+exhibitor.getUserId()+"',password='"+password+"' where uname='"+oldUserId+"'");
 					st.executeUpdate("Update users set uname='"+exhibitor.getUserId()+"',name='"+exhibitor.getName()+"',email='"+exhibitor.getEmail()+"',phone='"+exhibitor.getPhone()+"',address='"+exhibitor.getaddress()+"' where uname='"+oldUserId+"'");

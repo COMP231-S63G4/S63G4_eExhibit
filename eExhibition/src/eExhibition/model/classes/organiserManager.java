@@ -4,7 +4,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,28 +13,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import eExhibition.data.classes.Event;
+import eExhibition.data.classes.ExhibitorEvent;
 import eExhibition.data.classes.User;
 
 public class organiserManager implements organiserCatalog {
-	private static organiserManager om = null;	
-
-	public synchronized static organiserManager getInstance() {
-		if (om == null ) {
-			
-			om = new organiserManager();
-			
-		}
-		return om;
-	}
-
 	
-	
-	private organiserManager() {
-		//Just to be sure nobody outside make object of adminManager Class- Private Constructor
-	
-	}
-
-
 	private static organiserManager om = null;	
 
 	public synchronized static organiserManager getInstance() {
@@ -173,6 +155,62 @@ try {
 				
 			return exhibitors;
 	}
+	public ArrayList<ExhibitorEvent> getAllPendingRequest(){
+		ArrayList<ExhibitorEvent> pendingRequests=new ArrayList<ExhibitorEvent>();
+		try {
+			    
+				Class.forName("com.mysql.jdbc.Driver");				
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			    Statement st=con.createStatement();
+				
+				ResultSet rs=st.executeQuery("Select uname,eventid from pendingrequest");
+				while(rs.next())
+				{
+					 pendingRequests.add(new ExhibitorEvent(rs.getString(1),rs.getString(2)));
+				}
+				st.close();
+				rs.close();
+				con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			return pendingRequests;
+		
+	}
+	public boolean requestDecisionMaker(ExhibitorEvent ue,String action){
+		
+				try {
+					    
+						Class.forName("com.mysql.jdbc.Driver");				
+						java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+					    Statement st=con.createStatement();						
+						st.executeUpdate("Delete from pendingrequest where uname='"+ue.getUName()+"' and eventid='"+ue.getEventId()+"'");
+						if(action.equals("accept"))
+						{
+							st.executeUpdate("Insert into eventexhibitor values('"+ue.getEventId()+"','"+ue.getUName()+"')");
+						}
+						else
+						{
+							
+						}
+						st.close();
+						con.close();
+						} catch (SQLException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (ClassNotFoundException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+		
+		return true;
+	}
+	
 	public boolean inviteExhibitors(String eventId,ArrayList<String> exhibitorsUnames){
 		try {
 				    
