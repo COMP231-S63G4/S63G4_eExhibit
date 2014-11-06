@@ -89,6 +89,21 @@ public class organiserResponseManager extends HttpServlet {
 					
 			rd = request.getRequestDispatcher("/pendingRequestDecision.jsp");
 		}
+		else if(action.equals("Accept"))
+		{
+			ExhibitorEvent ue=new ExhibitorEvent(request.getParameter("uname"),request.getParameter("eventid"));
+			om.requestDecisionMaker(ue,"accept");
+					
+			rd = request.getRequestDispatcher("/OrganiserHomePage.jsp");
+		}
+		else if(action.equals("Reject"))
+		{
+			
+			ExhibitorEvent ue=new ExhibitorEvent(request.getParameter("uname"),request.getParameter("eventid"));
+			om.requestDecisionMaker(ue,"reject");
+					
+			rd = request.getRequestDispatcher("/OrganiserHomePage.jsp");
+		}
 		else if(action.equals("Invite Exhibitors"))
 		{
 			Map<String, Event> events=om.getAllEvents();

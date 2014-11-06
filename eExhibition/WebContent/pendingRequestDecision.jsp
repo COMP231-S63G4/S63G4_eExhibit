@@ -21,10 +21,10 @@
 	
 	<form action="${pageContext.request.contextPath}/organiserResponseManager" method="post">
 		<tr>
-		<th><input type="hidden" name="uname"   value="<c:out value="${requests.getUName()}"></c:out>"/>
-		<c:out value="${requests.getUName()}"></c:out></th>
-		<th><input type="hidden" name="eventid"   value="<c:out value="${requests.getEventId()}"></c:out>"/>
-		<c:out value="${requests.getEventId()}"></c:out></th>
+		<th><input type="hidden" name="uname"   value="<c:out value="${request.getUName()}"></c:out>"/>
+		<c:out value="${request.getUName()}"></c:out></th>
+		<th><input type="hidden" name="eventid"   value="<c:out value="${request.getEventId()}"></c:out>"/>
+		<c:out value="${request.getEventId()}"></c:out></th>
 		<th><input type="submit" name="action" value="Accept"/></th>
 		<th><input type="submit" name="action" value="Reject"/></th>
 		</tr>

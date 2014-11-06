@@ -193,10 +193,15 @@ try {
 						if(action.equals("accept"))
 						{
 							st.executeUpdate("Insert into eventexhibitor values('"+ue.getEventId()+"','"+ue.getUName()+"')");
+							st.executeUpdate("Insert into notification(uname,notification,date) values('"+ue.getUName()+"','Congrats!!! You request to participate in exhibition "
+							+ue.getEventId()+" has been accepted','"+new java.sql.Timestamp(new java.util.Date().getTime())+"')");	
+							   
 						}
 						else
 						{
-							
+							st.executeUpdate("Insert into notification(uname,notification,date) values('"+ue.getUName()+"','Sorry!!! You request to participate in exhibition "
+									+ue.getEventId()+" has been rejected','"+new java.sql.Timestamp(new java.util.Date().getTime())+"')");	
+									
 						}
 						st.close();
 						con.close();

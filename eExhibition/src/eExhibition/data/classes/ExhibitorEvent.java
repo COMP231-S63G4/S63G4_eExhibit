@@ -3,12 +3,10 @@ package eExhibition.data.classes;
 public class ExhibitorEvent {
 	private String uname;
 	private String eventid;
-	public ExhibitorEvent(){
-		
-	}
+	
 	public ExhibitorEvent(String uname,String eventid){
-		uname=this.uname;
-		eventid=this.eventid;
+		this.uname=uname;
+		this.eventid=eventid;
 	}
 	public String getUName()
 	{
@@ -20,10 +18,10 @@ public class ExhibitorEvent {
 	}
 	public void setUName(String uname)
 	{
-		uname=this.uname;
+		this.uname=uname;
 	}
 	public void setEventId(String eventid)
 	{
-		eventid=this.eventid;
+		this.eventid=eventid;
 	}
 }
