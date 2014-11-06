@@ -84,6 +84,15 @@ public class exhibitorResponseManager extends HttpServlet {
 			 rd = request.getRequestDispatcher("/displayExhibitor.jsp");
 		}
 		
+		else if(action.equals("View All Events"))
+		{
+			
+			Map<String, Event> events=om.getAllEvents();
+			request.setAttribute("events", events);
+			
+					
+			rd = request.getRequestDispatcher("/viewEvents.jsp");
+		}
 		 
 		else if(action.equals("Update Exhibitor"))
 		 {
@@ -113,6 +122,7 @@ public class exhibitorResponseManager extends HttpServlet {
 				flag=0;//Go away
 				}
 			}
+			
 			
 			if(flag==1){
 				User exhibitor = null;

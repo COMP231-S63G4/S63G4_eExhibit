@@ -17,6 +17,18 @@
 			height:100px;
 			border:0;
 		}
+		input.viewAllEvents{
+			background-image:url(${pageContext.request.contextPath}/images/viewAllEvents.png);
+			width:100px;
+			height:100px;
+			border:0;
+		}
+			input.joinEvent{
+			background-image:url(${pageContext.request.contextPath}/images/viewAllEvents.png);
+			width:100px;
+			height:100px;
+			border:0;
+		}
 		
 	</style>
   </head>
@@ -30,8 +42,10 @@
 		    
 		    <td><input   class="viewDetails" value="">
 		    <br/><input type="Submit" name="action"  value="My Details"/></td>
-		    
-		    
+		    <td><input   class="viewAllEvents" value="">
+		    <br/><input type="Submit" name="action"  value="View All Events"/></td>
+		    <td><input   class="joinEvent" value="">
+		    <br/><input type="Submit" name="action"  value="Join Event"/></td>
 		    </tr>
 		    
 		     
