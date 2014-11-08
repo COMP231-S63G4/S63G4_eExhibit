@@ -1,6 +1,7 @@
 package eExhibition.model.classes;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import eExhibition.data.classes.User;
 

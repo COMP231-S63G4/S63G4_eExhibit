@@ -18,7 +18,8 @@ import eExhibition.data.classes.User;
 
 public class organiserManager implements organiserCatalog {
 	
-	private static organiserManager om = null;	
+	private static organiserManager om = null;
+	
 
 	public synchronized static organiserManager getInstance() {
 		if (om == null ) {
@@ -163,10 +164,10 @@ try {
 				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 			    Statement st=con.createStatement();
 				
-				ResultSet rs=st.executeQuery("Select uname,eventid from pendingrequest");
+				ResultSet rs=st.executeQuery("Select uname,eventid,description from pendingrequest");
 				while(rs.next())
 				{
-					 pendingRequests.add(new ExhibitorEvent(rs.getString(1),rs.getString(2)));
+					 pendingRequests.add(new ExhibitorEvent(rs.getString(1),rs.getString(2),rs.getString(3)));
 				}
 				st.close();
 				rs.close();
@@ -193,16 +194,14 @@ try {
 						if(action.equals("accept"))
 						{
 							st.executeUpdate("Insert into eventexhibitor values('"+ue.getEventId()+"','"+ue.getUName()+"')");
-							st.executeUpdate("Insert into notification(uname,notification,date) values('"+ue.getUName()+"','Congrats!!! You request to participate in exhibition "
-							+ue.getEventId()+" has been accepted','"+new java.sql.Timestamp(new java.util.Date().getTime())+"')");	
-							   
+								   
 						}
-						else
+						/*else
 						{
 							st.executeUpdate("Insert into notification(uname,notification,date) values('"+ue.getUName()+"','Sorry!!! You request to participate in exhibition "
 									+ue.getEventId()+" has been rejected','"+new java.sql.Timestamp(new java.util.Date().getTime())+"')");	
 									
-						}
+						}*/
 						st.close();
 						con.close();
 						} catch (SQLException e) {

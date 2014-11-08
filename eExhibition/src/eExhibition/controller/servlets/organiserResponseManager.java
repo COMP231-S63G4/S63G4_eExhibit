@@ -19,6 +19,7 @@ import eExhibition.data.classes.ExhibitorEvent;
 import eExhibition.data.classes.User;
 import eExhibition.model.classes.adminManager;
 import eExhibition.model.classes.loginManager;
+import eExhibition.model.classes.notificationManager;
 import eExhibition.model.classes.organiserManager;
 
 /**
@@ -70,6 +71,7 @@ public class organiserResponseManager extends HttpServlet {
 		adminManager am=adminManager.getInstance();
 		loginManager lm=loginManager.getInstance();
 		organiserManager om=organiserManager.getInstance();
+		notificationManager nm=notificationManager.getInstance();
 		if(action.equals("My Details"))
 		{
 			String uname=(String) session.getAttribute("userName");
@@ -91,17 +93,19 @@ public class organiserResponseManager extends HttpServlet {
 		}
 		else if(action.equals("Accept"))
 		{
-			ExhibitorEvent ue=new ExhibitorEvent(request.getParameter("uname"),request.getParameter("eventid"));
+			ExhibitorEvent ue=new ExhibitorEvent(request.getParameter("uname"),request.getParameter("eventid"),request.getParameter("description"));
 			om.requestDecisionMaker(ue,"accept");
-					
+			nm.sendNotification(ue.getUName(), "Congrats!!! Your request to participate in exhibition "
+					+ue.getEventId()+" has been accepted");		
 			rd = request.getRequestDispatcher("/OrganiserHomePage.jsp");
 		}
 		else if(action.equals("Reject"))
 		{
 			
-			ExhibitorEvent ue=new ExhibitorEvent(request.getParameter("uname"),request.getParameter("eventid"));
+			ExhibitorEvent ue=new ExhibitorEvent(request.getParameter("uname"),request.getParameter("eventid"),request.getParameter("decription"));
 			om.requestDecisionMaker(ue,"reject");
-					
+			nm.sendNotification(ue.getUName(), "Sorry!!! Your request to participate in exhibition "
+			+ue.getEventId()+" has been rejected");	
 			rd = request.getRequestDispatcher("/OrganiserHomePage.jsp");
 		}
 		else if(action.equals("Invite Exhibitors"))
@@ -117,9 +121,11 @@ public class organiserResponseManager extends HttpServlet {
 			String[] exhibitors=request.getParameterValues("exhibitorIds");
 			ArrayList<String> al=new ArrayList<String>();	
 			String eventId=request.getParameter("eventId");
+			
 			for(int i=0;i<exhibitors.length;i++)
 			{
 				al.add(exhibitors[i]);
+				
 			}
 			om.inviteExhibitors(eventId, al);
 			rd = request.getRequestDispatcher("/OrganiserHomePage.jsp");
