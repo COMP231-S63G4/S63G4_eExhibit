@@ -15,21 +15,21 @@
 <h2>------All Events-----</h2>
 <table border="1" align="center">
 <tr>
-<th>Event Id</th><th>Event Name</th><th>Details</th><th>Location</th><th>Start Date</th><th>End Date</th><th>Event Organizers</th>
+<!-- <th>Event Id</th> --><th>Event Name</th><th>Details</th><th>Location</th><th>Start Date</th><th>End Date</th><th>Event Organizers</th>
 </tr>
 
 <c:forEach items="${requestScope.events}" var="event">
 	
 	<form action="${pageContext.request.contextPath}/exhibitorResponseManager" method="post">
 		<tr>
-		<th><c:out value="${event.key}"></c:out></th>
+		<%-- <th><c:out value="${event.key}"></c:out></th> --%>
 		
-		<th><c:out value="${event.value.eventName}"></c:out></th>
-		<th><c:out value="${event.value.details}"></c:out></th>
-		<th><c:out value="${event.value.location}"></c:out></th>
-		<th><c:out value="${event.value.startDate}"></c:out></th>
-		<th><c:out value="${event.value.endDate}"></c:out></th>
-		<th><c:out value="${event.value.eventOrganizers}"></c:out></th>
+		<th><c:out value="${event.value.getEventName()}"></c:out></th>
+		<th><c:out value="${event.value.getDetails()}"></c:out></th>
+		<th><c:out value="${event.value.getLocation()}"></c:out></th>
+		<th><c:out value="${event.value.getStartDate()}"></c:out></th>
+		<th><c:out value="${event.value.getEndDate()}"></c:out></th>
+		<th><c:out value="${event.value.getEventOrganizers()}"></c:out></th>
 		</tr>
 	</form>
 	

@@ -17,32 +17,35 @@
 						<form  action="${pageContext.request.contextPath}/loginServlet" method="post" >
 							<br/>
 							EVENT FORM :<br/><br/>
-							
+							<span style="color: black;">Event Id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							 <input type="text" name="name" />
+							<br/>
+							<br/>
 							<span style="color: black;">Event Name :&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="text" name="eventname" />
+							<input type="text" name="Ename" />
 							<br/>
 							<br/>
 							
-							 <label for="comments"> Event details :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							 <label for="comments">Events details :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
  
-                            <textarea  name="details" maxlength="1000" cols="16"rows="6"></textarea>
+                            <textarea  name="comments" maxlength="1000" cols="16"rows="6"></textarea>
                              </br>
                              </br>
                              
                              span style="color: black;">Event Location :&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </span>
-							<input type="Text" name="location" />
+							<input type="Text" name="ELocation" />
 							<br/>
 							<br/>
 							<span style="color: black;">Start Date :&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-							<input type="Text" name="startdate" />
+							<input type="Text" name="Sdete" />
 							<br/>
 							<br/>
 							<span style="color: black;">End Date :&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-							<input type="Text" name="enddate" />
+							<input type="Text" name="Edate" />
 							<br/>
 							<br/>
 							<span style="color: black;">Event Organizers :&nbsp; </span>
-							<input type="Text" name="Orgnisers" />
+							<input type="Text" name="OrgName" />
 							<br/>
 							<br/>
 							<input type="submit" name="submit"  value="log in" />

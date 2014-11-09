@@ -18,6 +18,7 @@ import eExhibition.data.classes.Event;
 import eExhibition.data.classes.ExhibitorEvent;
 import eExhibition.data.classes.User;
 import eExhibition.model.classes.adminManager;
+import eExhibition.model.classes.eventManager;
 import eExhibition.model.classes.loginManager;
 import eExhibition.model.classes.notificationManager;
 import eExhibition.model.classes.organiserManager;
@@ -72,6 +73,7 @@ public class organiserResponseManager extends HttpServlet {
 		loginManager lm=loginManager.getInstance();
 		organiserManager om=organiserManager.getInstance();
 		notificationManager nm=notificationManager.getInstance();
+		eventManager em=eventManager.getInstance();
 		if(action.equals("My Details"))
 		{
 			String uname=(String) session.getAttribute("userName");
@@ -90,6 +92,10 @@ public class organiserResponseManager extends HttpServlet {
 			
 					
 			rd = request.getRequestDispatcher("/pendingRequestDecision.jsp");
+		}
+		else if(action.equals("Add Event"))
+		{
+			rd = request.getRequestDispatcher("/AddEventPage.jsp");
 		}
 		else if(action.equals("Accept"))
 		{
@@ -195,7 +201,13 @@ public class organiserResponseManager extends HttpServlet {
 			
 		}
 		
-		
+		else if(action.equals("View All Events"))
+		{
+			
+			Map<String, Event> events=em.getAllEvents();
+			request.setAttribute("events", events);						
+			rd = request.getRequestDispatcher("/viewEvents.jsp");
+		}
 		
 		
 	

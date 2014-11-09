@@ -31,6 +31,19 @@
 			height:100px;
 			border:0;
 		}
+		input.addEvent{
+		background-image:url(${pageContext.request.contextPath}/images/addEvent.png);
+			width:100px;
+			height:100px;
+			border:0;
+		}
+		input.viewEvents
+		{
+		background-image:url(${pageContext.request.contextPath}/images/viewAllEvents.png);
+			width:100px;
+			height:100px;
+			border:0;
+		 }
 	</style>
   </head>
   
@@ -43,10 +56,28 @@
 		    
 		    <td><input   class="viewDetails" value="">
 		    <br/><input type="Submit" name="action"  value="My Details"/></td>
+		    
+		    <td><input   class="addEvent" value="">
+		    <br/><input type="Submit" name="action"  value="Add Event"/></td>
+		    
 		    <td><input   class="inviteExibitors" value="">
 		    <br/><input type="Submit" name="action"  value="Invite Exhibitors"/></td>
+		    
 		    <td><input   class="pendingRequest" value="">
 		    <br/><input type="Submit" name="action"  value="Pending Requests"/></td>
+		    
+		    </tr>
+		    
+		    <tr>
+		    
+		    <td><input   class="viewEvents" value="">
+		    <br/><input type="Submit" name="action"  value="View All Events"/></td>
+		    
+		    <td>&nbsp;</td>
+		    
+		    <td>&nbsp;</td>
+		    
+		    <td>&nbsp;</td>
 		    
 		    </tr>
 		    

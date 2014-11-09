@@ -10,4 +10,5 @@ public interface exhibitorCatalog {
 	public User getExhibitor(String uname);
 	public Map<String,Event> getAllOtherEvents(String exhibitoruname);
 	public User registerToParticipate(User exhibitor,Event eventId, String description);
+	
 }

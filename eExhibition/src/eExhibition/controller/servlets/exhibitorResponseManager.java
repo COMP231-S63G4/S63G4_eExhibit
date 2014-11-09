@@ -111,7 +111,7 @@ public class exhibitorResponseManager extends HttpServlet {
 			String uname=(String) session.getAttribute("userName");
 			User exhibitor=em.getExhibitor(uname);
 			String eventid=(String) session.getAttribute("eventId");
-			Map<String, Event> eventId=(Map<String, Event>) evm.getEvent("eventid");
+			Event eventId= evm.getEventById("eventid");
 			String whyJoin=request.getParameter("whyJoin").trim();
 			
 			
@@ -129,7 +129,7 @@ public class exhibitorResponseManager extends HttpServlet {
 															
 						}
 						
-						rd = request.getRequestDispatcher("/index.jsp");
+						rd = request.getRequestDispatcher("/ExhibitorHomePage.jsp");
 		
 			}
 			
