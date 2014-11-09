@@ -83,6 +83,16 @@ public class exhibitorResponseManager extends HttpServlet {
 			 request.setAttribute("Role", "Exhibitor");
 			 rd = request.getRequestDispatcher("/displayExhibitor.jsp");
 		}
+		else if(action.equals("Join Event"))
+		{
+			String exhibitoruname=(String) session.getAttribute("userName");
+			Map<String, Event> events=em.getAllOtherEvents(exhibitoruname);
+			
+			request.setAttribute("events", events);
+			
+					
+			rd = request.getRequestDispatcher("/selectEventForParticipation.jsp");
+		}
 		
 		else if(action.equals("View All Events"))
 		{

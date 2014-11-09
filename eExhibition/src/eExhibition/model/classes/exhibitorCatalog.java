@@ -1,9 +1,13 @@
 package eExhibition.model.classes;
 
-import eExhibition.data.classes.User;
+import java.util.Map;
+
+import eExhibition.data.classes.*;
 
 public interface exhibitorCatalog {
 	public User addExhibitor(User exhibitor,String password);
 	public User updateExhibitorDetail(User exhibitor, String oldUserId,	String password);
 	public User getExhibitor(String uname);
+	public Map<String,Event> getAllOtherEvents(String exhibitoruname);
+	
 }
