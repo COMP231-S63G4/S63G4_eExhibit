@@ -86,7 +86,7 @@ public class RegistrationManager extends HttpServlet {
 							
 						
 							User addedExhibitor=em.addExhibitor(exhibitor, password);
-							System.out.println("-----KOMALAAAAAA------");
+							
 								
 						}
 						else{

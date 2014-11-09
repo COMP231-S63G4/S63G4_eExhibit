@@ -1,36 +1,18 @@
-<html> <!--starting of html-->
-	<head><!--starting of head-->
-		<title>Contact Us</title>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+		<title>ContactUs</title>
         <link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" />
 			
 			<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"></script>
 			<script src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
 	</head><!--end of head-->
 			<body><!--starting of body-->
-					<div id="container"><!--starting of container-->
-
-								<div id="header"><!--starting of header-->
-										<div id="title">ONLINE EXHIBITION</div><!--starting of lean title in header-->
-								</div> <!-- end of header panel -->
-    
-								<div id="menu"><!--starting of menu-->
-												<ul><!--starting of list-->
-													<li><a   href="${pageContext.request.contextPath}/index.jsp">Home</a></li><!--insrtion of menu in list-->
-													<li><a  href="${pageContext.request.contextPath}/AboutUs.jsp">About us</a></li>
-													<li><a  href="${pageContext.request.contextPath}/Gallery.jsp">Gallery</a></li>
-												    <li><a  href="${pageContext.request.contextPath}/Services.jsp">Services</a></li>
-													<li><a  href="${pageContext.request.contextPath}/Events.jsp">Events</a></li>
-													<li><a class="current" href="${pageContext.request.contextPath}/ContactUs.jsp">Contact Us</a></li>
-			                                        <li><a  href="${pageContext.request.contextPath}/BusinessContacts.jsp">Business contacts</a></li>
-												
-												</ul><!--end of list-->
-    
-								</div> <!-- end of menu -->
-    
-								
-								
-    
-					<div id="content_area1">
+					 <%@ include file="bannerTop.jsp" %> 
 					<div id="ContactLeft">
                       <fieldset>
     <legend>
@@ -100,12 +82,7 @@
 					</div>
          
           
-				    </div> <!-- end of content_area1-->
-    
-				<div id="footer">    
-								Copyright © 2014 <strong>eExhibition</strong>
-				</div> <!-- end of footer -->
-    
+				    <%@ include file="bannerBottom.jsp" %> 	
 		</div> <!-- end of container -->
      </body><!--end of body-->
 </html><!--end of html-->

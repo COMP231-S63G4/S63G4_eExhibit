@@ -7,7 +7,7 @@
   <head>
    
     
-    <title>My JSP 'RegisteredUserHomePage.jsp' starting page</title>
+    <title>SelectEventForParticipation</title>
     
 	<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"/></script>
 <link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
@@ -17,8 +17,11 @@
   
   <body style="text-align: center;">
   <%@ include file="bannerTop.jsp" %>
+  <fieldset style="margin-left:150px;margin-right:150px">
+<legend>
+<h1 style="color:white;">Event Participation Form</h1></legend>
   <form action="${pageContext.request.contextPath}/exhibitorResponseManager"  method="post">
-  <table align="center" frame="box">
+  <table align="center" frame="box" style="color:white">
   <tr >
   <td colspan="2">Choose events for participation: </td>
   </tr>
@@ -35,7 +38,11 @@
 	<td><input type="submit" name="action" value="Participate"/> </td>
   </tr>
   </table>
+  <c:if test="${requestScope.Role=='Exhibitor'}">
+	<input type="button" value="Go Back" onclick="window.location.href='/eExhibition/ExhibitorHomePage.jsp'"/>
+	</c:if>
   </form>
+  </fieldset>
   
    <%@ include file="bannerBottom.jsp" %> 	
   </body>

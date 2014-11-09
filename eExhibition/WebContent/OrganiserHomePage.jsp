@@ -5,7 +5,7 @@
   <head>
     
     
-    <title>My JSP 'OrganiserHomePage.jsp' starting page</title>
+    <title>OrganiserHomePage</title>
     
 	<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"/></script>
 	<link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />

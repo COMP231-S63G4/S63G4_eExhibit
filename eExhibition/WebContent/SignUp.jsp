@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Registration</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"/></script>
 <link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
 <script src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
@@ -64,7 +64,7 @@
 		<tr>
 		
 			<th>Name: </th>
-			<td><input  type="text" id="name" name="name" placeholder="Exhibitor Name" style="width:160px;"/></td>
+			<td><input  type="text" id="name" name="name" placeholder="User Name" style="width:160px;"/></td>
 		</tr>
 		<tr>
 		<tr>

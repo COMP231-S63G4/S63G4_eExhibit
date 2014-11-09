@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Display Exhibitor</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"/></script>
 <link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
 <script src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
@@ -18,8 +18,10 @@
 </head>
 <body>
  <%@ include file="bannerTop.jsp" %> 
-
-<div style="text-align:center">
+<fieldset style="margin-left:150px;margin-right:150px">
+<legend>
+<h1 style="color:white;">Exhibitor Profile</h1></legend>
+<div style="text-align:center;color:white">
 	<h2>
 		<c:choose>
 		    <c:when test="${requestScope.CALLER=='Display Exhibitor'}">
@@ -115,6 +117,7 @@
 	<input type="button" value="Go Back" onclick="window.location.href='/eExhibition/AdminHomePage.jsp'"/>
 	</c:if>
 </div>
+	</fieldset>
 	 <%@ include file="bannerBottom.jsp" %> 		
 </body>
 </html>

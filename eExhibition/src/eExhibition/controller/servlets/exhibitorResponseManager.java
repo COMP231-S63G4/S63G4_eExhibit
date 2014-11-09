@@ -127,8 +127,9 @@ public class exhibitorResponseManager extends HttpServlet {
 					em.registerToParticipate(uname,eventid,whyJoin);
 															
 						}
+					request.setAttribute("joinEventMessage", "Request sent to Organiser for Confirmation");
+					rd = request.getRequestDispatcher("/joinEvent.jsp");
 						
-						rd = request.getRequestDispatcher("/ExhibitorHomePage.jsp");
 		
 			}
 			
@@ -142,6 +143,8 @@ public class exhibitorResponseManager extends HttpServlet {
 					
 			rd = request.getRequestDispatcher("/viewEvents.jsp");
 		}
+
+	
 		 
 		else if(action.equals("Update Exhibitor"))
 		 {

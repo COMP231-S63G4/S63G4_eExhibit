@@ -174,7 +174,7 @@
 				    				Class.forName("com.mysql.jdbc.Driver");				
 				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 				    			    Statement st=con.createStatement();
-				    				st.executeUpdate("Delete from events where eventid='"+event.getEventId()+"')");
+				    				st.executeUpdate("Delete from events where eventid='"+event+"'");
 				    				
 				    				st.close();
 				    				
@@ -220,6 +220,8 @@
 				    				}
 				    			return false;
 				    		}
+
+							
 
 				    	}
 		    	

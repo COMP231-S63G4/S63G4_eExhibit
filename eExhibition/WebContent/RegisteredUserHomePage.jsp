@@ -6,7 +6,7 @@
   <head>
    
     
-    <title>My JSP 'RegisteredUserHomePage.jsp' starting page</title>
+    <title>RegisteredUsers</title>
     
 	<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"/></script>
 <link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />

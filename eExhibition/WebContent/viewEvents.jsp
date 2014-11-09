@@ -5,15 +5,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>ViewEvents</title>
 <script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"/></script>
 <link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
 <script src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
 </head>
 <body style="text-align:center;">
 <%@ include file="bannerTop.jsp" %> 
-<h2>------All Events-----</h2>
-<table border="1" align="center">
+<fieldset style="margin-left:50px;margin-right:50px">
+<legend>
+<h1 style="color:white;">All Events</h1></legend>
+
+<table border="1" align="center" style="color:white">
 <tr>
 <!-- <th>Event Id</th> --><th>Event Name</th><th>Details</th><th>Location</th><th>Start Date</th><th>End Date</th><th>Event Organizers</th>
 </tr>
@@ -30,13 +33,20 @@
 		<th><c:out value="${event.value.getStartDate()}"></c:out></th>
 		<th><c:out value="${event.value.getEndDate()}"></c:out></th>
 		<th><c:out value="${event.value.getEventOrganizers()}"></c:out></th>
+		<th><input type="submit" name="action" value="View"/></th>
+		<th><input type="submit" name="action" value="Delete"/></th>
 		</tr>
+		<c:if test="${requestScope.Role=='Exhibitor'}">
+	<input type="button" value="Go Back" onclick="window.location.href='/eExhibition/ExhibitorHomePage.jsp'"/>
+	</c:if>
 	</form>
 	
 </c:forEach>
 
 
 </table>
+
+	</fieldset>
 <%@ include file="bannerBottom.jsp" %> 	
 </body>
 </html>

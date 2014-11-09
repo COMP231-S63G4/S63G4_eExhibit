@@ -208,6 +208,33 @@ public class organiserResponseManager extends HttpServlet {
 			request.setAttribute("events", events);						
 			rd = request.getRequestDispatcher("/viewEvents.jsp");
 		}
+   else if(action.equals("View")){
+	   
+	   String eventId=request.getParameter("events");			
+		 Event event=om.getEventById(eventId);			 
+		 request.setAttribute("event",event);
+		 Map<String, User>  exhibitors=om.getAllExhibitors();
+		 request.setAttribute("exhibitors",exhibitors);
+		 rd = request.getRequestDispatcher("/inviteExhibitorsforEvent.jsp");
+	   
+	   
+			
+		/////need changes
+			 request.setAttribute("CALLER", "Display Event");
+			 rd = request.getRequestDispatcher("/displayEvent.jsp");
+		}
+		
+		else if(action.equals("Delete")){
+			
+		/////need changes
+			
+			String event=request.getParameter("event");
+			//Event deletedEvent=evm.deleteEvent(event);
+			/*request.setAttribute("password",am.getPasswordOfUserName(uname)); //lol jad delete ho geya ta millu ki*/
+			 request.setAttribute("event", event); 
+			// request.setAttribute("event", deletedEvent);
+		     rd = request.getRequestDispatcher("/viewEvents.jsp");
+	}
 		
 		
 	

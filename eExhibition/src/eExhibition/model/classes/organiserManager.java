@@ -76,7 +76,7 @@ public class organiserManager implements organiserCatalog {
 		    	String eDate = String.valueOf(rs.getTimestamp("enddate"));
 		    	Date stDate = sdf.parse(sDate);
 		    	Date edDate = sdf.parse(eDate);
-		    	Event event=new Event(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),stDate,edDate,rs.getString(1));
+		    	Event event=new Event(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),stDate,edDate,rs.getString(7));
 		    	events.put(rs.getString(1), event);
 		    }
 			rs.close();
