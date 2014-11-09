@@ -150,6 +150,40 @@ public class exhibitorManager implements exhibitorCatalog {
 				
 			return user;//if not found return null
 	}
+public User registerToParticipate(User exhibitor,Map<String, Event> eventId, String description) {
+		
+		try {
+				    
+					Class.forName("com.mysql.jdbc.Driver");				
+					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+				    Statement st=con.createStatement();
+					st.executeUpdate("Insert into pendingrequest(uname,eventid,description) values('"+exhibitor.getUserId()+"','"+((Event) eventId).getEventId()+"','"+description+"')");
+		
+										
+										
+					st.close();
+					
+					con.close();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (ClassNotFoundException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					return exhibitor;
+				
+}
+
+
+
+@Override
+public User registerToParticipate(User exhibitor, Event eventId,
+		String description) {
+	// TODO Auto-generated method stub
+	return null;
+}
 	
 
 

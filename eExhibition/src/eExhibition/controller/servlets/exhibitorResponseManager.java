@@ -18,6 +18,7 @@ import eExhibition.data.classes.Event;
 import eExhibition.data.classes.ExhibitorEvent;
 import eExhibition.data.classes.User;
 import eExhibition.model.classes.adminManager;
+import eExhibition.model.classes.eventManager;
 import eExhibition.model.classes.exhibitorManager;
 import eExhibition.model.classes.loginManager;
 import eExhibition.model.classes.organiserManager;
@@ -72,6 +73,8 @@ public class exhibitorResponseManager extends HttpServlet {
 		loginManager lm=loginManager.getInstance();
 		organiserManager om=organiserManager.getInstance();
 		exhibitorManager em=exhibitorManager.getInstance();
+		eventManager evm=eventManager.getInstance();
+		
 		if(action.equals("My Details"))
 		{
 			String uname=(String) session.getAttribute("userName");
@@ -93,6 +96,43 @@ public class exhibitorResponseManager extends HttpServlet {
 					
 			rd = request.getRequestDispatcher("/selectEventForParticipation.jsp");
 		}
+		else if(action.equals("Participate"))
+		{
+			
+			 String eventId=request.getParameter("events");			
+			 Event event=om.getEventById(eventId);			 
+			 request.setAttribute("event",event);
+			 Map<String, User>  exhibitors=om.getAllExhibitors();
+			 request.setAttribute("exhibitors",exhibitors);
+			 rd = request.getRequestDispatcher("/joinEvent.jsp");
+		}
+		if(action.equals("Confirm"))
+		{
+			String uname=(String) session.getAttribute("userName");
+			User exhibitor=em.getExhibitor(uname);
+			String eventid=(String) session.getAttribute("eventId");
+			Map<String, Event> eventId=(Map<String, Event>) evm.getEvent("eventid");
+			String whyJoin=request.getParameter("whyJoin").trim();
+			
+			
+			System.out.println("kooooooooooooooooooooooooooaaooaoa" );
+			System.out.println( "kooooooooooooooooooooooooooaaooallllllloa");
+			if(whyJoin=="")
+			{
+				request.setAttribute("errorMessage", "User can not be added because you are missing required fields...");
+				rd = request.getRequestDispatcher("/errorPage.jsp");
+			}
+			
+			else{			
+												
+					User registerToParticipate=em.registerToParticipate(exhibitor,eventId,whyJoin);
+															
+						}
+						
+						rd = request.getRequestDispatcher("/index.jsp");
+		
+			}
+			
 		
 		else if(action.equals("View All Events"))
 		{
