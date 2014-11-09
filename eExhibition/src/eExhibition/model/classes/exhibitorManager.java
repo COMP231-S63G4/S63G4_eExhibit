@@ -41,7 +41,7 @@ public class exhibitorManager implements exhibitorCatalog {
 		try {
 				    
 					Class.forName("com.mysql.jdbc.Driver");				
-					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 				    Statement st=con.createStatement();
 					st.executeUpdate("Insert into login(uname,password,type) values('"+exhibitor.getUserId()+"','"+password+"','exbt')");
 					st.executeUpdate("Insert into users(uname,name,email,phone,address) values('"+exhibitor.getUserId()+
@@ -69,7 +69,7 @@ public class exhibitorManager implements exhibitorCatalog {
 		try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 		    Statement st=con.createStatement();
 		    ResultSet rs=st.executeQuery("Select eventid,eventname,details,location,startdate,enddate,eventorganisers from events where eventid Not in(Select eventid from eventexhibitor where exhibitoruname ='"+exhibitoruname+"')");
 		   		    
@@ -104,7 +104,7 @@ public class exhibitorManager implements exhibitorCatalog {
 		try {
 				    
 					Class.forName("com.mysql.jdbc.Driver");				
-					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 				    Statement st=con.createStatement();
 					st.executeUpdate("Update login set uname='"+exhibitor.getUserId()+"',password='"+password+"' where uname='"+oldUserId+"'");
 					st.executeUpdate("Update users set uname='"+exhibitor.getUserId()+"',name='"+exhibitor.getName()+"',email='"+exhibitor.getEmail()+"',phone='"+exhibitor.getPhone()+"',address='"+exhibitor.getaddress()+"' where uname='"+oldUserId+"'");
@@ -129,7 +129,7 @@ public class exhibitorManager implements exhibitorCatalog {
 		try {
 			    
 				Class.forName("com.mysql.jdbc.Driver");				
-				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 			    Statement st=con.createStatement();
 				
 				ResultSet rs=st.executeQuery("Select uname,name,address,phone,email from users where uname='"+uname+"'");
@@ -150,14 +150,14 @@ public class exhibitorManager implements exhibitorCatalog {
 				
 			return user;//if not found return null
 	}
-public User registerToParticipate(User exhibitor,Map<String, Event> eventId, String description) {
+public boolean registerToParticipate(String uname,String eventId, String description) {
 		
 		try {
 				    
 					Class.forName("com.mysql.jdbc.Driver");				
-					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 				    Statement st=con.createStatement();
-					st.executeUpdate("Insert into pendingrequest(uname,eventid,description) values('"+exhibitor.getUserId()+"','"+((Event) eventId).getEventId()+"','"+description+"')");
+					st.executeUpdate("Insert into pendingrequest(uname,eventid,description) values('"+uname+"','"+eventId+"','"+description+"')");
 		
 										
 										
@@ -172,18 +172,11 @@ public User registerToParticipate(User exhibitor,Map<String, Event> eventId, Str
 						e.printStackTrace();
 					}
 					
-					return exhibitor;
+					return true;
 				
 }
 
 
-
-@Override
-public User registerToParticipate(User exhibitor, Event eventId,
-		String description) {
-	// TODO Auto-generated method stub
-	return null;
-}
 	
 
 

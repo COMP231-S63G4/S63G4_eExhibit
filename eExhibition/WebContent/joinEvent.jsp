@@ -32,12 +32,12 @@
 <br>
 <br>
 
-<h1 style="color:white">Welcome to  event  <c:out value="${event.getEventName()}"></c:out></h1>
+<h1 style="color:white">Welcome to  event  <c:out value="${requestScope.event.getEventName()}"></c:out></h1>
 
 	<table align="center" style="font-size: 20px;color:white" >
 	
 		<tr>
-			<th> &nbsp;</th>
+			<th> <input type="hidden" name="eventid" value="${requestScope.event.getEventId()}"/>&nbsp;</th>
 			<td>&nbsp;</td>
 		</tr>
 		

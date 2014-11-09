@@ -27,7 +27,7 @@
   
 	 <select name="events">
 				<c:forEach items="${requestScope.events}" var="event">
-					<option value="${event.key}"><c:out value="${event.value.eventName}"></c:out></option>
+					<option value="${event.key}"><c:out value="${event.value.getEventName()}"></c:out></option>
 				</c:forEach>
 			</select>
 			

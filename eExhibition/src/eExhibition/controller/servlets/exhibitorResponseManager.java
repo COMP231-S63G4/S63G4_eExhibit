@@ -102,21 +102,20 @@ public class exhibitorResponseManager extends HttpServlet {
 			 String eventId=request.getParameter("events");			
 			 Event event=om.getEventById(eventId);			 
 			 request.setAttribute("event",event);
-			 Map<String, User>  exhibitors=om.getAllExhibitors();
-			 request.setAttribute("exhibitors",exhibitors);
+			/* Map<String, User>  exhibitors=om.getAllExhibitors();
+			 request.setAttribute("exhibitors",exhibitors);*/
 			 rd = request.getRequestDispatcher("/joinEvent.jsp");
 		}
 		if(action.equals("Confirm"))
 		{
 			String uname=(String) session.getAttribute("userName");
-			User exhibitor=em.getExhibitor(uname);
-			String eventid=(String) session.getAttribute("eventId");
-			Event eventId= evm.getEventById("eventid");
-			String whyJoin=request.getParameter("whyJoin").trim();
+			
+			String eventid=request.getParameter("eventid");
+			
+			String whyJoin=request.getParameter("description").trim();
 			
 			
-			System.out.println("kooooooooooooooooooooooooooaaooaoa" );
-			System.out.println( "kooooooooooooooooooooooooooaaooallllllloa");
+			
 			if(whyJoin=="")
 			{
 				request.setAttribute("errorMessage", "User can not be added because you are missing required fields...");
@@ -125,7 +124,7 @@ public class exhibitorResponseManager extends HttpServlet {
 			
 			else{			
 												
-					User registerToParticipate=em.registerToParticipate(exhibitor,eventId,whyJoin);
+					em.registerToParticipate(uname,eventid,whyJoin);
 															
 						}
 						
