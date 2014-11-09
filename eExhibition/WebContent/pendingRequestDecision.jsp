@@ -15,7 +15,7 @@
 <h2>------Pending Requests-----</h2>
 <table border="1" align="center">
 <tr>
-<th>UserName</th><th>EventId</th><th colspan="2">Action</th>
+<th>UserName</th><th>EventId</th><th>Description</th><th colspan="2">Action</th>
 </tr>
 <c:forEach items="${requestScope.requests}" var="request">
 	
@@ -25,6 +25,8 @@
 		<c:out value="${request.getUName()}"></c:out></th>
 		<th><input type="hidden" name="eventid"   value="<c:out value="${request.getEventId()}"></c:out>"/>
 		<c:out value="${request.getEventId()}"></c:out></th>
+		<th><input type="hidden" name="description"   value="<c:out value="${request.getDescription()}"></c:out>"/>
+		<c:out value="${request.getDescription()}"></c:out></th>
 		<th><input type="submit" name="action" value="Accept"/></th>
 		<th><input type="submit" name="action" value="Reject"/></th>
 		</tr>
