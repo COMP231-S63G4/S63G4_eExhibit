@@ -16,11 +16,14 @@
   
   <body style="text-align: center;">
   <%@ include file="bannerTop.jsp" %>
-  <h3>Invite for event  <c:out value="${event.getEventName()}"></c:out> </h3>
+  <fieldset style="margin-left:150px;margin-right:150px ;">
+<legend>
+
+  <h1 style="color:white">Invite for event  <c:out value="${event.getEventName()}"></c:out> </h1></legend>
   
   <form action="${pageContext.request.contextPath}/organiserResponseManager"  method="post">
   <input type="hidden" name="eventId" value="${event.getEventId()}"/>
-  <table align="center" frame="box">
+  <table align="center" frame="box" style="color:white">
   <tr>
   <td></td><th colspan="4">Exhibitor Details</th>
   </tr>
@@ -44,8 +47,9 @@
   <td></td><th colspan="4"><input type="submit" name="action" value="Invite"/></th>
   </tr>
   </table>
+ 
   </form>
-  
+   </fieldset>
    <%@ include file="bannerBottom.jsp" %> 	
   </body>
 </html>
