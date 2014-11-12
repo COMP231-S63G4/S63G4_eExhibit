@@ -19,41 +19,37 @@
 						<table frame="box" align="center">
 						<tr><td>
 						
-						<form  action="${pageContext.request.contextPath}/loginServlet" method="post" >
+						<form  action="${pageContext.request.contextPath}/eventResponseManager" method="post" >
 							<br/>
 							EVENT FORM :<br/><br/>
-							<span style="color: black;">Event Id: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-							 <input type="text" name="name" />
-							<br/>
-							<br/>
-							<span style="color: black;">Event Name :&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</span>
-							<input type="text" name="Ename" />
-							<br/>
-							<br/>
 							
-							 <label for="comments">Events details :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+							<span style="color: black;">Event Name :&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<input type="text" name="eventname" />
+							<br/>
+							<br/>
+							Events details :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
  
-                            <textarea  name="comments" maxlength="1000" cols="16"rows="6"></textarea>
-                             </br>
-                             </br>
+                            <textarea  name="details" maxlength="1000" cols="26"rows="6"></textarea>
+                             <br/>
+							<br/>
                              
                              <span style="color: black;">Event Location :&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; </span>
-							<input type="Text" name="ELocation" />
+							<input type="Text" name="location" />
 							<br/>
 							<br/>
 							<span style="color: black;">Start Date :&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-							<input type="Text" name="Sdete" />
+							<input type="Text" name="startdate" placeholder="dd/mm/yyyy"/>
 							<br/>
 							<br/>
 							<span style="color: black;">End Date :&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>
-							<input type="Text" name="Edate" />
+							<input type="Text" name="enddate" placeholder="dd/mm/yyyy" />
 							<br/>
 							<br/>
 							<span style="color: black;">Event Organizers :&nbsp; </span>
-							<input type="Text" name="OrgName" />
+							<input type="Text" name="eventorganisers" />
 							<br/>
 							<br/>
-							<input type="submit" name="submit"  value="log in" />
+							<input type="submit" name="action"  value="Create New Event" />
 						
 						</form>
 						</td></tr>

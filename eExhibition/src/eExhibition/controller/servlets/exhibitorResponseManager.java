@@ -141,7 +141,7 @@ public class exhibitorResponseManager extends HttpServlet {
 			request.setAttribute("events", events);
 			
 					
-			rd = request.getRequestDispatcher("/viewEvents.jsp");
+			rd = request.getRequestDispatcher("/viewEventsForExhibitor.jsp");
 		}
 
 	

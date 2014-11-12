@@ -144,7 +144,7 @@
 				    			    Statement st=con.createStatement();
 				    				flag=st.executeUpdate("Update events set eventname='"+
 				    			    changedEvent.getEventName()+"',details='"+changedEvent.getDetails()+"',location='"+changedEvent.getLocation()
-				    			    +"',startdate='"+changedEvent.getStartDate()+"',enddate='"+changedEvent.getEndDate()+"',eventorganisers='"+changedEvent.getEventOrganizers()+"' where eventid='"+changedEvent.getEventId()+"')");
+				    			    +"',startdate='"+changedEvent.getStartDate()+"',enddate='"+changedEvent.getEndDate()+"',eventorganisers='"+changedEvent.getEventOrganizers()+"' where eventid='"+changedEvent.getEventId()+"'");
 				    				
 				    				st.close();
 				    				
@@ -174,7 +174,7 @@
 				    				Class.forName("com.mysql.jdbc.Driver");				
 				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 				    			    Statement st=con.createStatement();
-				    				st.executeUpdate("Delete from events where eventid='"+event+"'");
+				    				st.executeUpdate("Delete from events where eventid='"+event.getEventId()+"'");
 				    				
 				    				st.close();
 				    				

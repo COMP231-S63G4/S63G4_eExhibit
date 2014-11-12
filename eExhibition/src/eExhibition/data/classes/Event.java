@@ -1,5 +1,7 @@
 package eExhibition.data.classes;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Event {
@@ -86,5 +88,17 @@ public class Event {
 	{
 		this.eventOrganizers=eventOrganizers;
 		
+	}
+	public String getEndDateInString()
+	{
+		Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+		String s = formatter.format(endDate);
+		return s;
+	}
+	public String getStartDateInString()
+	{
+		Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+		String s = formatter.format(startDate);
+		return s;
 	}
 }

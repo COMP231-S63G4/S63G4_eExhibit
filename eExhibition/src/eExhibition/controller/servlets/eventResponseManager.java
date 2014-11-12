@@ -60,10 +60,10 @@ public class eventResponseManager extends HttpServlet {
 			String startdate=request.getParameter("startdate").trim();
 			String enddate=request.getParameter("enddate").trim();
 			String eventorganisers=request.getParameter("eventorganisers").trim();
-			String eventid= "E"+(Math.random() * 100000000 + 1);
+			String eventid= "E"+((Math.random() * 100000000) + 1);
 			while(em.eventIdExists(eventid))
 			{
-				eventid= "E"+(Math.random() * 100000000 + 1);
+				eventid= "E"+((Math.random() * 100000000) + 1);
 			}
 			java.sql.Date sd=null;
 			java.sql.Date ed=null;
@@ -97,7 +97,55 @@ public class eventResponseManager extends HttpServlet {
 			
 	
 		}
+		else if(action.equals("Update"))
+		{
+			String eventid=request.getParameter("eventid");
+			String eventname=request.getParameter("eventname").trim();
+			String details=request.getParameter("details").trim();
+			String location=request.getParameter("location").trim();
+			String startdate=request.getParameter("startdate").trim();
+			String enddate=request.getParameter("enddate").trim();
+			String eventorganisers=request.getParameter("eventorganisers").trim();
+			java.sql.Date sd=null;
+			java.sql.Date ed=null;
+			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy"); 
+			try {
+				sd= new java.sql.Date(format.parse(startdate).getTime());
+				ed= new java.sql.Date(format.parse(enddate).getTime());
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			if(eventname==""||details==""||location==""||eventorganisers=="")
+			{
+				request.setAttribute("errorMessage", "Event can not be updated because you are missing required fields...");
+				rd = request.getRequestDispatcher("/errorPage.jsp");
+			}
+			
+			else{
+						Event event = null;
+						event=new Event(eventid, eventname, details, location, sd, ed, eventorganisers);
+						Event updatedEvent=em.updateEvent(event);
+						//request.setAttribute("indexMessage", "You are successfully registered...");
+						Map<String, Event> events=em.getAllEvents();
+						request.setAttribute("events", events);						
+						rd = request.getRequestDispatcher("/viewEvents.jsp");
 		
+			}
+			
+			
+		}
+		else if(action.equals("Delete"))
+		{
+			String eventid=request.getParameter("eventid");
+			Event event=em.getEventById(eventid);
+			Event deleteEvent=em.deleteEvent(event);
+			Map<String, Event> events=em.getAllEvents();
+			request.setAttribute("events", events);						
+			rd = request.getRequestDispatcher("/viewEvents.jsp");
+			/*rd = request.getRequestDispatcher("/OrganiserHomePage.jsp");*/
+		}
 		rd.forward(request, response);
 		
 	}

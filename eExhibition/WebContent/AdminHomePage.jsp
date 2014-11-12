@@ -48,11 +48,11 @@
 		    </c:if>
    
     <img src="${pageContext.request.contextPath}/images/settingIcon.png" id="changeAdminDetails"
-    style="position:absolute;right:5px;top:8px;width:25px;height:25px;"/>
+    style="position:absolute;right:205px;top:248px;width:25px;height:25px;"/>
     
     <form action="${pageContext.request.contextPath}/adminResponseManager" method="post">
     
-    <div id="adminDetailDiv" style="position:absolute;right:22px;top:28px;z-index:2;display:none;border:1px #000 solid;">
+    <div id="adminDetailDiv" style="position:absolute;right:222px;top:268px;z-index:2;display:none;border:1px #000 solid;">
 	   
 	    <input type="text" name="changedUname" placeholder="New UserName"></input>
 	    <br/><br/>
