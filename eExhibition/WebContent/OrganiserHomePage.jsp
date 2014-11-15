@@ -44,6 +44,13 @@
 			height:100px;
 			border:0;
 		 }
+		 input.viewTickets
+		{
+		background-image:url(${pageContext.request.contextPath}/images/ticket.png);
+			width:100px;
+			height:100px;
+			border:0;
+		 }
 	</style>
   </head>
   
@@ -65,6 +72,9 @@
 		    
 		    <td><input   class="pendingRequest" value="">
 		    <br/><input type="Submit" name="action"  value="Pending Requests"/></td>
+		    
+		    <td><input   class="ViewTicket" value="">
+		    <br/><input type="Submit" name="action"  value="View All Tickets"/></td>
 		    
 		    </tr>
 		    

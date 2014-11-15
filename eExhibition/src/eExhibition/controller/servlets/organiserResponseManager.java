@@ -208,6 +208,13 @@ public class organiserResponseManager extends HttpServlet {
 			request.setAttribute("events", events);						
 			rd = request.getRequestDispatcher("/viewEvents.jsp");
 		}
+		else if(action.equals("View All Tickets"))
+		{
+			
+			Map<String, Event> events=om.getAllTickets();
+			request.setAttribute("events", events);						
+			rd = request.getRequestDispatcher("/viewTickets.jsp");
+		}
    else if(action.equals("View")){
 	   
 	   String eventId=request.getParameter("events");			

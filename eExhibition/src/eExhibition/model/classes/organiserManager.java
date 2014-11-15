@@ -243,4 +243,33 @@ try {
 		return true;
 	}
 
+
+
+	@Override
+	public Map<String, Event> getAllTickets() {
+		Map<String,Event> events=new HashMap<String, Event>();
+		try {
+		    
+			Class.forName("com.mysql.jdbc.Driver");				
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+		    Statement st=con.createStatement();
+		    ResultSet rs=st.executeQuery("Select ");
+		    while(rs.next())
+		    {
+		    	
+		    }
+			rs.close();
+			st.close();			
+			con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return events;
+	}
+
 }

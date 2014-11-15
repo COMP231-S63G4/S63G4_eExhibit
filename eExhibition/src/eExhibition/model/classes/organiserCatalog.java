@@ -16,4 +16,5 @@ public interface organiserCatalog {
 	
 	public Event getEventById(String eventId);
 	public boolean inviteExhibitors(String eventId,ArrayList<String> exhibitorsUnames);
+	public Map<String,Event> getAllTickets();
 }
