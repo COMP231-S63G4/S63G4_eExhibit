@@ -25,6 +25,88 @@ body {
     color: #ffffff;
 	font-weight: normal;
     font-family:cursive;
+    
+    #content_area2 {
+	clear: both;
+	width: 970px;
+    min-height: 850px;
+	padding: 0px 00px 0px 00px;
+	background: url(images/panel.png) repeat-y;	
+}
+
+
+#Bidding1
+	{
+	float: left;
+    width: 33%;
+	 height: 45%;
+
+	}
+	
+	#Bidding2
+	{
+	float: left;
+   width: 33%;
+ height: 45%;
+	}
+	
+	#Bidding3
+	{
+	float: right;
+     width: 30%;
+	 height: 45%;
+
+	}
+	#Bidding4
+	{
+	float: left;
+     width: 33%;
+	  height: 45%;
+
+	}
+	
+	#Bidding5
+	{
+	float: left;
+   width: 33%;
+ height: 45%;
+	}
+	
+	#Bidding6
+	{
+	float: right;
+     width: 30%;
+	 height: 45%;
+
+	}
+	#Bidding7
+	{
+	float: left;
+     width: 33%;
+	  height: 45%;
+
+	}
+	
+	#Bidding8
+	{
+	float: left;
+   width: 33%;
+ height: 45%;
+	}
+	
+	#Bidding9
+	{
+	float: right;
+     width: 30%;
+	 height: 45%;
+
+	}
+	
+	#b1
+	{
+	margin: -160px;
+	padding:0px 10px 10px 10px;
+	}
 }
 
 #banner {
