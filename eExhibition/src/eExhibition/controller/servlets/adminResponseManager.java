@@ -71,7 +71,12 @@ public class adminResponseManager extends HttpServlet {
 		{
 			rd = request.getRequestDispatcher("/addOrganiser.jsp");
 		}
-		
+		else if(action.equals("View Exhibitors"))
+		{
+			request.setAttribute("whoToSearch","Exhibitor");
+			rd = request.getRequestDispatcher("/searchUserOptions.jsp");
+			//If whoToSearch is Exhibitor... Ehibitor Manager will handle things with exhibitor response manager
+		}
 		else if(action.equals("View")){
 			
 			String uname=request.getParameter("uname");
@@ -92,18 +97,7 @@ public class adminResponseManager extends HttpServlet {
 			 request.setAttribute("CALLER", "Delete Organiser");
 			 rd = request.getRequestDispatcher("/displayOrganiser.jsp");
 	}
-		else if(action.equals("View Organizers")){
-			Map<String,User> userList = new HashMap<String,User>();
-			ArrayList<User> alist=am.getAllUsers("orgn");//All organisers
 		
-			for(User u:alist)
-			{
-				userList.put(u.getUserId(),u);
-			}
-			
-			request.setAttribute("userList", userList);
-			rd = request.getRequestDispatcher("/viewOrganisers.jsp");
-		}
 		
 		else if(action.equals("Update Details"))
 		{
@@ -223,8 +217,9 @@ public class adminResponseManager extends HttpServlet {
 			
 			}
 		}
+		
 		else{
-			request.setAttribute("errorMessage", action);
+			 request.setAttribute("errorMessage", action);
 			 rd = request.getRequestDispatcher("/errorPage.jsp");
 		}
 		

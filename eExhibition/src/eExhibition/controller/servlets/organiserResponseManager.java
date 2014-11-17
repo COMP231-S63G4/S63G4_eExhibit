@@ -242,7 +242,33 @@ public class organiserResponseManager extends HttpServlet {
 			// request.setAttribute("event", deletedEvent);
 		     rd = request.getRequestDispatcher("/viewEvents.jsp");
 	}
+		else if(action.equals("Search")){
+			Map<String,User> userList = new HashMap<String,User>();
+			String uname = request.getParameter("unameSearchTBox");
+			ArrayList<User> alist=am.getAllUsersById("exbt",uname);
 		
+			for(User u:alist)
+			{
+				userList.put(u.getUserId(),u);
+			}
+			
+			request.setAttribute("userList", userList);
+			request.setAttribute("whoToSearch","Organiser");
+			rd = request.getRequestDispatcher("/viewOrganisers.jsp");
+		}
+		else if(action.equals("View Organizers")){
+			Map<String,User> userList = new HashMap<String,User>();
+			ArrayList<User> alist=am.getAllUsers("orgn");//All organisers
+		
+			for(User u:alist)
+			{
+				userList.put(u.getUserId(),u);
+			}
+			
+			request.setAttribute("userList", userList);
+			request.setAttribute("whoToSearch","Organiser");
+			rd = request.getRequestDispatcher("/viewOrganisers.jsp");
+		}
 		
 	
 		

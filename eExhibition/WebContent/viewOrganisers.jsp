@@ -12,7 +12,18 @@
 </head>
 <body style="text-align:center;">
 <%@ include file="bannerTop.jsp" %> 
-<h2>------All Organizers-----</h2>
+
+<c:choose>
+    <c:when test="${requestScope.whoToSearch=='Exhibitor'}">
+       <h2>------All Exhibitors-----</h2>
+    </c:when>
+    <c:when test="${requestScope.whoToSearch=='Organiser'}">
+       <h2>------All Organizers-----</h2>
+    </c:when>
+    <c:otherwise>
+       <h2>------All Registered Users-----</h2>
+  	</c:otherwise>		    
+</c:choose>	
 <table border="1" align="center">
 <tr>
 <th>UserName</th><th>Name</th><th>Address</th><th>Phone</th><th>Email</th><th></th><th></th>

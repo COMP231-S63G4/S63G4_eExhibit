@@ -28,6 +28,12 @@
 			height:100px;
 			border:0;
 		}
+		input.viewExhibitors{
+			background-image:url(${pageContext.request.contextPath}/images/viewExhibitors.png);
+			width:100px;
+			height:100px;
+			border:0;
+		}
 	</style>
 	
 	<script>
@@ -72,6 +78,8 @@
 		    <br/><input type="Submit" name="action"  value="Add Organiser"/></td>
 		    <td><input   class="viewOrganisers" value="">
 		    <br/><input type="Submit" name="action"  value="View Organizers"/></td>
+		     <td><input   class="viewExhibitors" value="">
+		    <br/><input type="Submit" name="action"  value="View Exhibitors"/></td>
 		    </tr>
 	    </table>
 	    

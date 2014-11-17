@@ -137,7 +137,33 @@ public class adminManager implements adminCatalog {
 				return deletedOrganiser;
 			
 	}
-
+	@Override
+	public ArrayList<User>getAllUsersById(String type,String uname){
+		ArrayList<User> users=new ArrayList<User>();
+		try {
+			    
+				Class.forName("com.mysql.jdbc.Driver");				
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			    Statement st=con.createStatement();
+				
+				ResultSet rs=st.executeQuery("Select users.uname,name,address,phone,email from users,login where users.uname=login.uname and type='"+type+"' and users.uname like '%"+uname+"%'");
+				while(rs.next())
+				{
+					users.add(new User(rs.getString(1),rs.getString(2),rs.getString(5),rs.getString(4),rs.getString(3)));
+				}
+				st.close();
+				rs.close();
+				con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			return users;
+		}
 
 
 	@Override

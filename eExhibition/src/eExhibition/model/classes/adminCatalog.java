@@ -16,4 +16,5 @@ public interface adminCatalog {
 	public User getOrganiser(String uname);
 	public String getPasswordOfUserName(String uname);
 	public ArrayList<User> getAllUsers(String type);
+	public ArrayList<User>getAllUsersById(String type,String uname);
 }
