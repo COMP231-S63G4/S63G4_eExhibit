@@ -158,6 +158,7 @@ public class organiserResponseManager extends HttpServlet {
 			String phone=request.getParameter("phone").trim();
 			String address=request.getParameter("address").trim();
 			int flag=1;
+			
 			if(uname==""||password==""||name==""||email==""||phone==""||address=="")
 			{
 				request.setAttribute("errorMessage", "Organizer can not be updated because you are missing required fields...");
@@ -237,7 +238,7 @@ public class organiserResponseManager extends HttpServlet {
 			
 			String event=request.getParameter("event");
 			//Event deletedEvent=evm.deleteEvent(event);
-			/*request.setAttribute("password",am.getPasswordOfUserName(uname)); //lol jad delete ho geya ta millu ki*/
+			/*request.setAttribute("password",am.getPasswordOfUserName(uname)); */
 			 request.setAttribute("event", event); 
 			// request.setAttribute("event", deletedEvent);
 		     rd = request.getRequestDispatcher("/viewEvents.jsp");
@@ -253,7 +254,9 @@ public class organiserResponseManager extends HttpServlet {
 			}
 			
 			request.setAttribute("userList", userList);
+			
 			request.setAttribute("whoToSearch","Organiser");
+			
 			rd = request.getRequestDispatcher("/viewOrganisers.jsp");
 		}
 		else if(action.equals("View Organizers")){
