@@ -8,7 +8,11 @@
 		<title>Services</title>
 			<link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
 			<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"></script>
-			<script src="${pageContext.request.contextPath}/javascripts/javascript.js"></script>
+			<script type="text/javascript" src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
+			
+			<script type="text/javascript" src="${pageContext.request.contextPath}/javascript/jQueryui.js"></script>
+			<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/styles/jQueryui.css"/>
+			 
 	</head><!--end of head-->
 			<body><!--starting of body-->
 			<%@ include file="bannerTop.jsp" %> 
@@ -73,16 +77,16 @@
 					</c:choose>	
 					</th>
 					<td>
-					<input type="text" name="unameSearchTBox"/>
+					<input type="text" id="tags" name="unameSearchTBox"/>
 					<c:choose>
 					    <c:when test="${requestScope.whoToSearch=='Exhibitor'}">
-					      <input type="submit" name="action"  value="Search" />
+					      <input type="submit"  name="action"  value="Search" />
 					    </c:when>
 					    <c:when test="${requestScope.whoToSearch=='Organiser'}">
-					      <input type="submit" name="action"  value="Search" />
+					      <input type="submit"  name="action"  value="Search" />
 					    </c:when>
 					    <c:otherwise>
-					       <input type="submit" name="action"  value="Search" />
+					       <input type="submit"  name="action"  value="Search" />
 					  	</c:otherwise>		    
 					</c:choose>	
 										
@@ -92,7 +96,15 @@
 			
 			</div>	
 			</form>		  
-        
+        <script>
+		  $(function() {
+			  var availableTags =JSON.stringify("${requestScope.unames}");
+		    
+		    $("#tags").autocomplete({
+		      source: availableTags
+		    });
+		  });
+		  </script>
 			 <%@ include file="bannerBottom.jsp" %> 	
      </body><!--end of body-->
 </html><!--end of html-->

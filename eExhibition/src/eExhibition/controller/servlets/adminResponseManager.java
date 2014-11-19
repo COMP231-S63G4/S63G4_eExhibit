@@ -74,6 +74,22 @@ public class adminResponseManager extends HttpServlet {
 		else if(action.equals("View Exhibitors"))
 		{
 			request.setAttribute("whoToSearch","Exhibitor");
+			ArrayList<String> users=am.getAllUsersId("exbt");
+			String usersids="[";
+			int flag=0;
+			for(String u:users)
+			{
+				if(flag==0){
+					usersids+="\""+u+"\"";
+					flag=1;
+				}
+				else
+				{
+					usersids+=",\""+u+"\"";
+				}
+			}
+			usersids+="]";
+			request.setAttribute("unames",usersids);
 			rd = request.getRequestDispatcher("/searchUserOptions.jsp");
 			//If whoToSearch is Exhibitor... Ehibitor Manager will handle things with exhibitor response manager
 		}

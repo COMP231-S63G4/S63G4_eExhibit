@@ -138,6 +138,35 @@ public class adminManager implements adminCatalog {
 			
 	}
 	@Override
+	public ArrayList<String> getAllUsersId(String type){
+		
+		ArrayList<String> usersid=new ArrayList<String>();
+		try {
+			    
+				Class.forName("com.mysql.jdbc.Driver");				
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			    Statement st=con.createStatement();
+				
+				ResultSet rs=st.executeQuery("Select uname from login where type='"+type+"'");
+				while(rs.next())
+				{
+					usersid.add(rs.getString(1));
+				}
+				st.close();
+				rs.close();
+				con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			return usersid;
+		
+	}
+	@Override
 	public ArrayList<User>getAllUsersById(String type,String uname){
 		ArrayList<User> users=new ArrayList<User>();
 		try {
