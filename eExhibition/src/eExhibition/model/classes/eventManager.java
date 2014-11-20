@@ -2,17 +2,18 @@
 				    	package eExhibition.model.classes;
 
 				    	import java.sql.DriverManager;
-				    	import java.sql.ResultSet;
-				    	import java.sql.SQLException;
-				    	import java.sql.Statement;
-				    	import java.text.DateFormat;
-				    	import java.text.ParseException;
-				    	import java.text.SimpleDateFormat;
-				    	import java.util.Date;
-				    	import java.util.HashMap;
-				    	import java.util.Map;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-				    	import eExhibition.data.classes.Event;
+import eExhibition.data.classes.Event;
+import eExhibition.data.classes.Product;
 
 				    	public class eventManager implements eventCatalog {
 
@@ -220,6 +221,74 @@
 				    				}
 				    			return false;
 				    		}
+
+
+
+							@Override
+							public Product addProductEvent(Product newProduct) {
+								int flag=0;
+				    			try {
+				    			    
+				    				Class.forName("com.mysql.jdbc.Driver");				
+				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				    			    Statement st=con.createStatement();
+				    				flag=st.executeUpdate("Insert into products(productid,productname,image,price,type,exhibitorname) values('"
+				    			    +newProduct.getProductId()+"','"+newProduct.getProductTitle()+"','"+newProduct.getDescription()+"','"+newProduct.getImage()+"','"+newProduct.getPrice()+"','"+newProduct.getType()+"','"+newProduct.getExhibitorUname()+"')");
+				    				
+				    				st.close();
+				    				
+				    				con.close();
+				    				} catch (SQLException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				} catch (ClassNotFoundException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				}
+				    				if(flag!=0)
+				    				{
+				    					return newProduct;
+				    				}
+				    				else{
+				    					return null;
+				    				}
+				    			
+				    		}
+
+
+
+							@Override
+							public boolean productIdExists(String productid) {
+try {
+				    			    
+				    				Class.forName("com.mysql.jdbc.Driver");				
+				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				    			    Statement st=con.createStatement();
+				    				ResultSet rs=st.executeQuery("select productid from products");
+				    			 
+				    				while(rs.next())
+				    				{
+				    				        
+				    				        if((rs.getString(1)).equals(productid))
+				    						{
+				    						  
+				    						  return true;
+				    						  
+				    						}
+				    				}
+				    				st.close();
+				    				rs.close();
+				    				con.close();
+				    				} catch (SQLException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				} catch (ClassNotFoundException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				}
+				    			return false;
+				    		}
+
 
 							
 
