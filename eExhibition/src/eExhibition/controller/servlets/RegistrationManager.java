@@ -22,6 +22,7 @@ import eExhibition.data.classes.User;
 import eExhibition.model.classes.adminManager;
 import eExhibition.model.classes.exhibitorManager;
 import eExhibition.model.classes.loginManager;
+import eExhibition.model.classes.registeredUserManager;
 
 
 
@@ -41,7 +42,12 @@ public class RegistrationManager extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession session = request.getSession();
+		session.invalidate();		
+		RequestDispatcher rd = 
+		request.getRequestDispatcher("/index.jsp");
+		rd.forward(request, response);	    		
+		return;
 	
 	}
 
@@ -55,7 +61,7 @@ public class RegistrationManager extends HttpServlet {
 		String action = request.getParameter("action");
 		exhibitorManager em=exhibitorManager.getInstance();
 		loginManager lm = loginManager.getInstance();
-	// registeredUserManager rm =	registeredUserManager.getInstance();
+	    registeredUserManager rm =	registeredUserManager.getInstance();
 						
 		if(action.equals("Register"))
 		{
@@ -80,19 +86,21 @@ public class RegistrationManager extends HttpServlet {
 			}
 			else{
 						User exhibitor = null;
-						exhibitor=new User(uname,name,email,phone,address);
+						User registeredUser=null;
+						
 						if(role.equals("exbt"))
 						{
 							
-						
+							exhibitor=new User(uname,name,email,phone,address);
 							User addedExhibitor=em.addExhibitor(exhibitor, password);
 							
 								
 						}
 						else{
-							//User added=rm.addRegisteredUser(user, password);
+							 registeredUser=new User(uname,name,email,phone,address);
+							User added=rm.addRegisteredUser( registeredUser, password);
 							exbtRegis=0;
-							System.out.println("-----KOMAL------");
+							
 						}
 						request.setAttribute("indexMessage", "You are successfully registered...");
 						rd = request.getRequestDispatcher("/index.jsp");

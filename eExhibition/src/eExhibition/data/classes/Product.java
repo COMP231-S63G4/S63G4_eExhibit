@@ -5,7 +5,7 @@ public class Product {
 			String productId;
 			String productTitle;
 			String description;
-			//String image;
+			String image;
 			String price;
 			String type;
 			String exhibitorUname;
@@ -17,77 +17,93 @@ public class Product {
 			      this.productId=productId;
 			      this.productTitle= productTitle;
 			      this.description=description;
-			      //this.image=image;
+			      this.image=image;
 			      this.price= price;
 			      this.type =type;
 			      this.exhibitorUname=exhibitorUname;
 			      this.kind=kind;
 			}
-			String getProductId()
+			public String getProductId()
 			{
 			return productId;
 			}
-			void setproductId(String pId)
+			
+			public void setproductId(String pId)
 			{
 			productId=pId;
 			}
 			
-			String getProductTitle()
+			public void setImage(String img)
+			{
+				image=img;
+			}
+			
+			public String getImage()
+			{
+				return image;
+			}
+			
+			public String getProductTitle()
 			{
 			return productTitle;
 			}
-			void setProductTitle(String title)
+			
+			public void setProductTitle(String title)
 			{
 			this.productTitle=title;
 			
 			}
 			
-			String getDescription()
+			public String getDescription()
 			{
 			return productTitle;
 			}
-			void setDescription(String description)
+			
+			public void setDescription(String description)
 			{
 			this.description=description;
 			
 			}
 			
-			String getPrice()
+			public String getPrice()
 			{
 			return productTitle;
 			}
-			void setPrice(String price)
+			
+			public void setPrice(String price)
 			{
 			this.price=price;
 			
 			}
 			
-			String getType()
+			public String getType()
 			{
 			return type;
 			}
-			void setType( String type)
+			public void setType( String type)
 			{
 				
 			this.type=type;
 			
 			}
 			
-			String getExhibitorUname()
+			public String getExhibitorUname()
 			{
 			return productTitle;
 			}
-			void setExhibitorUname(String exhibitorUname)
+			
+			public void setExhibitorUname(String exhibitorUname)
 			{
 			this.productTitle=exhibitorUname;
 			
 			}
 			
-			String getKind()
+			public String getKind()
 			{
 			return kind;
 			}
-			void setKind( String kind)
+			
+			public void setKind( String kind)
 			{
 				
 			this.kind=kind;

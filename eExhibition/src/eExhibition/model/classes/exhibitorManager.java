@@ -14,6 +14,7 @@ import java.util.Map;
 
 import eExhibition.data.classes.Event;
 import eExhibition.data.classes.ExhibitorEvent;
+import eExhibition.data.classes.Product;
 import eExhibition.data.classes.User;
 
 public class exhibitorManager implements exhibitorCatalog {
@@ -99,6 +100,9 @@ public class exhibitorManager implements exhibitorCatalog {
 			
 			return events;
 	}
+	
+	
+	
 	
 	public User updateExhibitorDetail(User exhibitor, String oldUserId,	String password) {
 		try {

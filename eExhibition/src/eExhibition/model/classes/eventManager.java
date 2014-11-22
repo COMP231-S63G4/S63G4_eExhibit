@@ -222,7 +222,36 @@ import eExhibition.data.classes.Product;
 				    			return false;
 				    		}
 
-
+				    		public Product addProduct(Product product){
+				    			try {
+				    			    
+				    				Class.forName("com.mysql.jdbc.Driver");				
+				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				    			    Statement st=con.createStatement();
+				    				st.executeUpdate("Insert into products(productid,producttitle,description,image,price,type,exhibitoruname,kind) "
+				    						+ "values('"+product.getProductId()+"','"+product.getProductTitle()+"','"+product.getDescription()+"'"
+				    								+ ",'"+product.getImage()+"'"
+				    										+ ",'"+product.getImage()+"'"
+				    												+ ",'"+product.getPrice()+"','"
+				    													+product.getType()+"'"
+				    															+ ",'"+product.getExhibitorUname()+"'"
+				    																	+ ",'"+product.getKind()+"')");
+				    				
+				    									
+				    				st.close();
+				    				
+				    				con.close();
+				    				} catch (SQLException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				} catch (ClassNotFoundException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				}
+				    		
+				    			return product;
+				    				
+				    		}
 
 							@Override
 							public Product addProductEvent(Product newProduct) {

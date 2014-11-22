@@ -11,4 +11,5 @@ public interface exhibitorCatalog {
 	public Map<String,Event> getAllOtherEvents(String exhibitoruname);
 	public boolean registerToParticipate(String uname,String eventId, String description);
 	
+	
 }

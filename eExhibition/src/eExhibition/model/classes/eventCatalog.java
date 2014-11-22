@@ -15,4 +15,5 @@ public interface eventCatalog {
 	public boolean eventIdExists(String eventid);
 	public Product addProductEvent(Product newProduct);
 	public boolean productIdExists(String productid);
+	public Product addProduct(Product product);
 }
