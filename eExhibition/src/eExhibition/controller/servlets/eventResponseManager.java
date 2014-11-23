@@ -173,7 +173,7 @@ public class eventResponseManager extends HttpServlet {
 			
 			else{
 						Product product = null;
-						product=new Product(productid, productname, details, image, price, type, exhibitorname);
+						product=new Product(productid, productname, details, image, price, type, exhibitorname,"special");
 						Product addedProduct=em.addProduct(product);
 						//request.setAttribute("indexMessage", "You are successfully registered...");
 						rd = request.getRequestDispatcher("/ExhibitorHomePage.jsp");

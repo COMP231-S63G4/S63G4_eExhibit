@@ -12,9 +12,13 @@ public class BiddingProduct{
 			String startPrice;
 			String closePrice;
 			User user;
+			User user2;
+			String topPrice2;
+			User user3;
+			String topPrice3;
 			
 			
-			public BiddingProduct(Event event,Product product , Date startDate, Date endDate,String startPrice , String closePrice , User user)
+			public BiddingProduct(Event event,Product product , Date startDate, Date endDate,String startPrice , String closePrice , User user,User user2,String topPrice2,User user3,String topPrice3)
 			{
 				this.event=event;
 				this.product = product; 
@@ -23,6 +27,10 @@ public class BiddingProduct{
 				this.startPrice =startPrice ;
 				this.closePrice= closePrice;
 				this.user=user;
+				this.user2=user2;
+				this.topPrice2=topPrice2;
+				this.user3=user3;
+				this.topPrice3=topPrice3;
 			}
 			
 			public Event getEvent()
@@ -75,12 +83,42 @@ public class BiddingProduct{
 			{
 				this.closePrice= closePrice;
 			}
-			public User getUName()
+			public User getUser()
 			{
 				return user;
 			}
-			public void setUName(User user)
+			public void setUser(User user)
 			{
 				this.user=user;
+			}
+			public void setUser2(User user2)
+			{
+				this.user2=user2;
+				
+			}
+			public User getUser2()
+			{
+				return user2;
+			}
+			public void setUser3(User user3)
+			{
+				this.user3=user3;
+				
+			}
+			public User getUser3()
+			{
+				return user3;
+			}
+			public void setTopPrice2(String topPrice2){
+				this.topPrice2=topPrice2;
+			}
+			public String getTopPrice2(){
+				return topPrice2;
+			}
+			public void setTopPrice3(String topPrice3){
+				this.topPrice3=topPrice3;
+			}
+			public String getTopPrice3(){
+				return topPrice3;
 			}
 }

@@ -29,6 +29,13 @@
 			border:0;
 		 }
 		 
+		 input.viewBiddingProducts
+		 {
+		background-image:url(${pageContext.request.contextPath}/images/viewAllEvents.png);
+			width:100px;
+			height:100px;
+			border:0;
+		 }
 	</style>
   </head>
   
@@ -44,6 +51,9 @@
 			    
 			    <td><input   class="viewEvents" value="">
 			    <br/><input type="Submit" name="action"  value="View All Events"/></td>
+			    
+			      <td><input   class="viewBiddingProducts" value="">
+			    <br/><input type="Submit" name="action"  value="View Bidding Products"/></td>
 			    
 			    </tr>		    
 			    			     

@@ -101,10 +101,9 @@ public class registeredUserResponseManager extends HttpServlet {
 		else if(action.equals("View Bidding Products"))
 		{
 			
-			Map<String, ArrayList<BiddingProduct>> events=em.getAllEvents();
-			request.setAttribute("events", events);
-			
-					
+			Map<String, ArrayList<BiddingProduct>> bidProducts=em.getAllBiddindProducts();
+			request.setAttribute("bidproduct", bidProducts);
+								
 			rd = request.getRequestDispatcher("/biddingProductsAllEvents.jsp");
 		}
 		

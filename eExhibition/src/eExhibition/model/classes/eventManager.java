@@ -206,7 +206,7 @@ import eExhibition.data.classes.User;
 				    				Class.forName("com.mysql.jdbc.Driver");				
 				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 				    			    Statement st=con.createStatement();
-				    			    ResultSet rs=st.executeQuery("Select eventid,productid,startdate,enddate,startprice,closeprice,uname from biddingproduct order by eventid");
+				    			    ResultSet rs=st.executeQuery("Select eventid,productid,startdate,enddate,startprice,closeprice,uname,uname2,topprice2,uname3,topprice3 from biddingproduct order by eventid");
 				    			    while(rs.next())
 				    			    {
 				    			    	DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -217,7 +217,9 @@ import eExhibition.data.classes.User;
 				    			    	Event event=getEventById(rs.getString(1));
 				    			    	Product product=getProductById(rs.getString(2));
 				    			    	User user=getUserById(rs.getString(7));
-				    			    	BiddingProduct bidproduct=new BiddingProduct(event,product,stDate,edDate,rs.getString(5),rs.getString(6),user);
+				    			    	User user2=getUserById(rs.getString(8));
+				    			    	User user3=getUserById(rs.getString(10));
+				    			    	BiddingProduct bidproduct=new BiddingProduct(event,product,stDate,edDate,rs.getString(5),rs.getString(6),user,user2,rs.getString(9),user3,rs.getString(11));
 				    			    	
 				    			    	if(flag==1){
 				    			    		bps=new ArrayList<BiddingProduct>();
