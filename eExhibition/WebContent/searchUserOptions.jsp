@@ -98,8 +98,8 @@
 			</form>		  
         <script>
 		  $(function() {
-			  var availableTags =JSON.stringify("${requestScope.unames}");
-		    
+			  var availableTags =("${requestScope.unames}").split(",");
+			  //var items=data.split("\n");
 		    $("#tags").autocomplete({
 		      source: availableTags
 		    });

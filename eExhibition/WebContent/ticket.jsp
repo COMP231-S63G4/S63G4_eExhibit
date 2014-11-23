@@ -5,64 +5,97 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ticket </title>
-<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"/></script>
-<link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
-<script src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
-<style type="text/css">
-	.noBorder
-	{
-		border:none;
-	}
-</style>
+		<title>ContactUs</title>
+        <link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" />
+			
+			<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"></script>
+			<script src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
+	</head><!--end of head-->
+			<body><!--starting of body-->
+					 <%@ include file="bannerTop.jsp" %> 
+					<div id="ContactLeft">
+                      <fieldset>
+    <legend>
+     <h2 style="color:#99CC66">Buy tickets:</h2></legend>
+                        <table id="ContactForm" >
 
-
-</head>
-<body>
- <%@ include file="bannerTop.jsp" %> 
+<tr>
+ <td >
+  <label for="first_name">First Name :</label>
+ </td>
+ <td >
+  <input  type="text" name="first_name" maxlength="50" size="30">
+ </td>
+</tr>
+  
+<tr>
+ <td ">
+  <label for="last_name">Last Name : </label>
+ </td>
+ <td >
+  <input  type="text" name="last_name" maxlength="50" size="30">
+ </td>
+</tr>
+<tr>
+ <td >
+  <label for="email">Email : </label>
+ </td>
+ <td >
+  <input  type="text" name="email" maxlength="80" size="30">
+ </td>
  
+</tr>
+<tr>
+ <td >
+  <label for="telephone">Phone : </label>
+ </td>
+ <td >
+  <input  type="text" name="telephone" maxlength="30" size="30">
+ </td>
+</tr>
+<tr>
+ <td ">
+  <label for="last_name">Event Name : </label>
+ </td>
+ <td >
+  <input  type="text" name="last_name" maxlength="50" size="30">
+ </td>
+</tr>
 
-<div style="text-align: left;margin-left:150px;margin-right:150px;color:white;">
-
-<fieldset>
-<legend>
-<h1 style="color:white;">Ticket</h1></legend>
-
-<form action="${pageContext.request.contextPath}/UserResponseManager"  method="post">
-<br>
-<h1> Welcome to<c:out value="${event.getEventName()}"></c:out> event </h1>
-<br>
-
-<div style="text-align: left;color:white;width:50%;font-size:20px;float:left;">
-Name -
-<br><br>
-Email Id-
-<br><br>
-Contact No-
-<br>
-<br>
-Exhibitor -
-</div>
-
-<div style="font-size:20px;color:white;width:50%;float:right;">
-Venue- 
-<br>
-<br>
-
-Time -
-<br>
-</div>
-<div style="font-size:26px;margin-top:120px ;margin-left:120px;text-align:left;float:left">
-
-This event is organised by  
-</div>
-
-
-	</form>
-	<br/>
-	</fieldset>
-	</div>
-	
-	 <%@ include file="bannerBottom.jsp" %> 		
-</body>
-</html>
+<tr>
+ <td ">
+  <label for="last_name">Event Date : </label>
+ </td>
+ <td >
+  <input  type="text" name="last_name" maxlength="50" size="30">
+ </td>
+</tr>
+<tr>
+ <td ">
+  <label for="last_name">Event Time : </label>
+ </td>
+ <td >
+  <input  type="text" name="last_name" maxlength="50" size="30">
+ </td>
+</tr>
+<tr>
+ <td colspan="2" style="text-align:center">
+  <input type="submit" value="Pay Now">   
+ </td>
+</tr>
+</table>
+                          </fieldset>
+				    </div>
+					
+							  
+        
+								<div class="cleaner_h20">&nbsp;</div>  
+          
+				    </div> <!-- end of content_area1-->
+				    
+				    
+				    <%@ include file="bannerBottom.jsp" %> 	
+		</div> <!-- end of container -->
+     </body><!--end of body-->
+</html><!--end of html-->
+		 

@@ -75,23 +75,43 @@ public class adminResponseManager extends HttpServlet {
 		{
 			request.setAttribute("whoToSearch","Exhibitor");
 			ArrayList<String> users=am.getAllUsersId("exbt");
-			String usersids="[";
+			String usersids="";
 			int flag=0;
 			for(String u:users)
 			{
 				if(flag==0){
-					usersids+="\""+u+"\"";
+					usersids+=u;
 					flag=1;
 				}
 				else
 				{
-					usersids+=",\""+u+"\"";
+					usersids+=","+u;
 				}
 			}
-			usersids+="]";
+			//usersids+="";
 			request.setAttribute("unames",usersids);
 			rd = request.getRequestDispatcher("/searchUserOptions.jsp");
 			//If whoToSearch is Exhibitor... Ehibitor Manager will handle things with exhibitor response manager
+		}
+		else if(action.equals("View Organizers")){
+			request.setAttribute("whoToSearch","Organiser");
+			ArrayList<String> users=am.getAllUsersId("orgn");
+			String usersids="";
+			int flag=0;
+			for(String u:users)
+			{
+				if(flag==0){
+					usersids+=u;
+					flag=1;
+				}
+				else
+				{
+					usersids+=","+u;
+				}
+			}
+			//usersids+="";
+			request.setAttribute("unames",usersids);
+			rd = request.getRequestDispatcher("/searchUserOptions.jsp");
 		}
 		else if(action.equals("View")){
 			

@@ -23,16 +23,16 @@
 	<h2>
 		<c:choose>
 		    <c:when test="${requestScope.CALLER=='Display Organiser'}">
-		       Displaying Organizer Details!!!
+		       Displaying Details!!!
 		    </c:when>
 		    <c:when test="${requestScope.CALLER=='Add Organiser'}">
-		       Following Organizer has been added successfully!!!
+		       Following User has been added successfully!!!
 		    </c:when>
 		    <c:when test="${requestScope.CALLER=='Delete Organiser'}">
-		       Following Organizer has been deleted from system!!!
+		       Following User has been deleted from system!!!
 		    </c:when>
 		    <c:when test="${requestScope.CALLER=='Update Organiser'}">
-		       Your Updated Organizer Details!!!
+		       Your Updated User Details!!!
 		    </c:when>
 	    
 		</c:choose>

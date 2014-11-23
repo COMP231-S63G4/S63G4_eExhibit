@@ -8,12 +8,15 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import eExhibition.data.classes.BiddingProduct;
 import eExhibition.data.classes.Event;
 import eExhibition.data.classes.Product;
+import eExhibition.data.classes.User;
 
 				    	public class eventManager implements eventCatalog {
 
@@ -104,6 +107,35 @@ import eExhibition.data.classes.Product;
 				    			return event;
 				    		}
 
+				    		
+				    		public Product getProductById(String id)
+				    		{
+				    			Product product = null;
+				    			try {
+				    			    
+				    				Class.forName("com.mysql.jdbc.Driver");				
+				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				    			    Statement st=con.createStatement();
+				    			    ResultSet rs=st.executeQuery("Select productid,producttitle,description,image,price,type,exhibitoruname,kind from products where productid='"+id+"'");
+				    			    while(rs.next())
+				    			    {
+				    			    	
+				    			    	product=new Product(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
+				    			    	
+				    			    }
+				    				rs.close();
+				    				st.close();			
+				    				con.close();
+				    				} catch (SQLException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				} catch (ClassNotFoundException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				} 
+				    			return product;
+				    		}
+
 				    		@Override
 				    		public Event addEvent(Event newEvent) {
 				    			int flag=0;
@@ -134,7 +166,102 @@ import eExhibition.data.classes.Product;
 				    				}
 				    			
 				    		}
+				    		
+				    		public User getUserById(String userid)
+				    		{
+				    			User user=null;
+				    			try {
+				    				    
+				    					Class.forName("com.mysql.jdbc.Driver");				
+				    					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				    				    Statement st=con.createStatement();
+				    					
+				    					ResultSet rs=st.executeQuery("Select uname,name,address,phone,email from users where uname='"+userid+"' ");
+				    					while(rs.next())
+				    					{
+				    						user=new User(rs.getString(1),rs.getString(2),rs.getString(5),rs.getString(4),rs.getString(3));
+				    					}
+				    					st.close();
+				    					rs.close();
+				    					con.close();
+				    					} catch (SQLException e) {
+				    						// TODO Auto-generated catch block
+				    						e.printStackTrace();
+				    					} catch (ClassNotFoundException e) {
+				    						// TODO Auto-generated catch block
+				    						e.printStackTrace();
+				    					}
+				    					
+				    				return user;
+				    		}
 
+				    		//bidding function
+				    		public Map<String, ArrayList<BiddingProduct>> getAllBiddindProducts(){
+				    			
+				    			Map<String,ArrayList<BiddingProduct>> biddingProducts=new HashMap<String, ArrayList<BiddingProduct>>();
+				    			ArrayList<BiddingProduct> bps=null;
+				    			try {
+				    			    String eventcompare="";
+				    			    int flag=1;
+				    				Class.forName("com.mysql.jdbc.Driver");				
+				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				    			    Statement st=con.createStatement();
+				    			    ResultSet rs=st.executeQuery("Select eventid,productid,startdate,enddate,startprice,closeprice,uname from biddingproduct order by eventid");
+				    			    while(rs.next())
+				    			    {
+				    			    	DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+				    			    	String sDate = String.valueOf(rs.getTimestamp("startdate"));
+				    			    	String eDate = String.valueOf(rs.getTimestamp("enddate"));
+				    			    	Date stDate = sdf.parse(sDate);
+				    			    	Date edDate = sdf.parse(eDate);
+				    			    	Event event=getEventById(rs.getString(1));
+				    			    	Product product=getProductById(rs.getString(2));
+				    			    	User user=getUserById(rs.getString(7));
+				    			    	BiddingProduct bidproduct=new BiddingProduct(event,product,stDate,edDate,rs.getString(5),rs.getString(6),user);
+				    			    	
+				    			    	if(flag==1){
+				    			    		bps=new ArrayList<BiddingProduct>();
+					    			    	eventcompare=rs.getString(1);
+					    			    	flag=0;
+				    			    	}
+				    			    	if(eventcompare.equals(rs.getString(1)))
+				    			    	{
+				    			    		//under same eventid name 
+				    			    		bps.add(bidproduct);
+				    			    		
+				    			    	}
+				    			    	else{//other eventid
+				    			    		biddingProducts.put(eventcompare, bps);//save old values- last event details
+				    			    		eventcompare=rs.getString(1);
+				    			    		bps=new ArrayList<BiddingProduct>();
+				    			    		bps.add(bidproduct);
+				    			    	}
+				    			    	
+				    			    }
+				    			    if(flag==0)
+				    			    {
+				    			    	biddingProducts.put(eventcompare, bps);
+				    			    }
+				    				rs.close();
+				    				st.close();			
+				    				con.close();
+				    				} catch (SQLException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				} catch (ClassNotFoundException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				} catch (ParseException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				}
+				    				
+				    				return biddingProducts;
+				    			
+				    		}
+				    		
+				    		
+				    		
 				    		@Override
 				    		public Event updateEvent(Event changedEvent) {
 				    			int flag=0;

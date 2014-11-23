@@ -5,82 +5,82 @@ import java.util.Date;
 
 public class BiddingProduct{
 
-			String eventId;
+			Event event;
 			Product product;
 			Date startDate;
 			Date endDate;
 			String startPrice;
 			String closePrice;
-			String uName;
+			User user;
 			
 			
-			public BiddingProduct(String eventId,Product product , Date startDate, Date endDate,String startPrice , String closePrice , String uName)
+			public BiddingProduct(Event event,Product product , Date startDate, Date endDate,String startPrice , String closePrice , User user)
 			{
-				this.eventId=eventId;
+				this.event=event;
 				this.product = product; 
 				this.startDate= startDate;
 				this.endDate =endDate;
 				this.startPrice =startPrice ;
 				this.closePrice= closePrice;
-				this.uName=uName;
+				this.user=user;
 			}
 			
-			String getEventId()
+			public Event getEvent()
 			{
-				return eventId;
+				return event;
 			}
-			void setEventId(String eventId)
+			public void setEvent(Event event)
 			{
-				this.eventId=eventId;
+				this.event=event;
 			}
-			Product getProduct()
+			public Product getProduct()
 			{
 				return product;
 			}
-			void setProduct(Product product)
+			public void setProduct(Product product)
 			{
 				this.product = product; 
 			}
-			Date getStartDate()
+			public Date getStartDate()
 			{
 				return startDate;
 				
 			}
-			void setStartDate(Date startDate)
+			public void setStartDate(Date startDate)
 			{
 				this.startDate= startDate;
 			}
-			Date getEndDate()
+			public Date getEndDate()
 			{
 				return endDate;
 				
 			}
-			void setEndDate(Date endDate)
+			public void setEndDate(Date endDate)
 			{
 				this.endDate =endDate;
 			}
-			String getStartPrice()
+			public String getStartPrice()
 			{
 				return startPrice;
 			}
-			void setStartPrice(String startPrice)
+			public void setStartPrice(String startPrice)
 			{
 				this.startPrice =startPrice ;
 			}
-			String getClosePrice()
+			public String getClosePrice()
 			{
 				return closePrice;
 			}
-			void setClosePrice(String closePrice)
+			public void setClosePrice(String closePrice)
 			{
 				this.closePrice= closePrice;
 			}
-			String getUName()
+			public User getUName()
 			{
-				return uName;
+				return user;
 			}
-			void setUName(String uName)
+			public void setUName(User user)
 			{
-				this.uName=uName;
+				this.user=user;
 			}
 }

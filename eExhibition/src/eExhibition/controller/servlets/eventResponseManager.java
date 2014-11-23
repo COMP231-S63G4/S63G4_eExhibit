@@ -147,32 +147,6 @@ public class eventResponseManager extends HttpServlet {
 			rd = request.getRequestDispatcher("/viewEvents.jsp");
 			/*rd = request.getRequestDispatcher("/OrganiserHomePage.jsp");*/
 		}
-		if(action.equals("Generate Ticket"))
-		{
-		
-			String uname=request.getParameter("uname").trim();
-			String email=request.getParameter("email").trim();
-			String contact=request.getParameter("contact").trim();
-			String startdate=request.getParameter("startdate").trim();
-			String enddate=request.getParameter("enddate").trim();
-			String location=request.getParameter("location").trim();
-			
-			String eventorganisers=request.getParameter("eventorganisers").trim();
-			String eventid= "E"+((Math.random() * 100000000) + 1);
-			while(em.eventIdExists(eventid))
-			{
-				eventid= "E"+((Math.random() * 100000000) + 1);
-			}
-			java.sql.Date sd=null;
-			java.sql.Date ed=null;
-			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy"); 
-			try {
-				sd= new java.sql.Date(format.parse(startdate).getTime());
-				ed= new java.sql.Date(format.parse(enddate).getTime());
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackT
-		
 		
 		if(action.equals("Add Product"))
 		{

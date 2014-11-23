@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import eExhibition.data.classes.BiddingProduct;
 import eExhibition.data.classes.Event;
 import eExhibition.data.classes.ExhibitorEvent;
 import eExhibition.data.classes.User;
@@ -97,7 +98,15 @@ public class registeredUserResponseManager extends HttpServlet {
 					
 			rd = request.getRequestDispatcher("/viewEventsForExhibitor.jsp");
 		}
-
+		else if(action.equals("View Bidding Products"))
+		{
+			
+			Map<String, ArrayList<BiddingProduct>> events=em.getAllEvents();
+			request.setAttribute("events", events);
+			
+					
+			rd = request.getRequestDispatcher("/biddingProductsAllEvents.jsp");
+		}
 		
 	
 		

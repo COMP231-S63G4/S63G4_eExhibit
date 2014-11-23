@@ -246,7 +246,7 @@ public class organiserResponseManager extends HttpServlet {
 		else if(action.equals("Search")){
 			Map<String,User> userList = new HashMap<String,User>();
 			String uname = request.getParameter("unameSearchTBox");
-			ArrayList<User> alist=am.getAllUsersById("exbt",uname);
+			ArrayList<User> alist=am.getAllUsersById("orgn",uname);
 		
 			for(User u:alist)
 			{

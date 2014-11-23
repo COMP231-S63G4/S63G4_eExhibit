@@ -11,7 +11,7 @@ public class Product {
 			String exhibitorUname;
 			String kind;
 			
-			public  Product(String productId,String productTitle,String description,String price,String type,String exhibitorUname,String kind)
+			public  Product(String productId,String productTitle,String description,String image,String price,String type,String exhibitorUname,String kind)
 			{
 			
 			      this.productId=productId;
