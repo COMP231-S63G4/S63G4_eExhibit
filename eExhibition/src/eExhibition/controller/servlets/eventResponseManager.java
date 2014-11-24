@@ -98,6 +98,7 @@ public class eventResponseManager extends HttpServlet {
 			
 	
 		}
+		
 		else if(action.equals("Update"))
 		{
 			String eventid=request.getParameter("eventid");
@@ -137,6 +138,8 @@ public class eventResponseManager extends HttpServlet {
 			
 			
 		}
+		
+		
 		else if(action.equals("Delete"))
 		{
 			String eventid=request.getParameter("eventid");

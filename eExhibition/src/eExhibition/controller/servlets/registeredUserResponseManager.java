@@ -96,7 +96,7 @@ public class registeredUserResponseManager extends HttpServlet {
 			request.setAttribute("events", events);
 			
 					
-			rd = request.getRequestDispatcher("/viewEventsForExhibitor.jsp");
+			rd = request.getRequestDispatcher("/viewEventsForUsers.jsp");
 		}
 		else if(action.equals("View Bidding Products"))
 		{
@@ -105,30 +105,6 @@ public class registeredUserResponseManager extends HttpServlet {
 			request.setAttribute("bidproduct", bidProducts);
 								
 			rd = request.getRequestDispatcher("/biddingProductsAllEvents.jsp");
-		}
-		else if(action.equals("My Bid"))
-		{
-			String bidValue=request.getParameter("bidValue");
-			String topBidValue=request.getParameter("topPrice");
-			String eventid=request.getParameter("eventid");
-			String productid=request.getParameter("productid");
-			String user=(String) session.getAttribute("userName");
-			if(Float.parseFloat(bidValue)<=Float.parseFloat(topBidValue))
-			{
-				//bid should be higher
-				request.setAttribute("errorMessage","Your entered bid value is lower than top most bid value");
-				rd = request.getRequestDispatcher("/errorPage.jsp");
-			}
-			else{
-				//Do bid and change value at backend and display changed values
-				
-				em.addNewBidValue(eventid,productid,bidValue,user);
-				
-				Map<String, ArrayList<BiddingProduct>> bidProducts=em.getAllBiddindProducts();
-				request.setAttribute("bidproduct", bidProducts);
-									
-				rd = request.getRequestDispatcher("/biddingProductsAllEvents.jsp");
-			}
 		}
 		
 	

@@ -5,6 +5,7 @@ import java.util.Map;
 import eExhibition.data.classes.BiddingProduct;
 import eExhibition.data.classes.Event;
 import eExhibition.data.classes.Product;
+import eExhibition.data.classes.SoldProduct;
 import eExhibition.data.classes.User;
 
 public interface eventCatalog {
@@ -25,5 +26,5 @@ public interface eventCatalog {
 	public User getUserById(String userid);
 	//bidding functions
 	public Map<String, ArrayList<BiddingProduct>> getAllBiddindProducts();
-	public void addNewBidValue(String eventid,String productid,String bidValue,String username);
+	public Map<String,SoldProduct> getAllSoldProducts();
 }
