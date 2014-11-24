@@ -25,4 +25,5 @@ public interface eventCatalog {
 	public User getUserById(String userid);
 	//bidding functions
 	public Map<String, ArrayList<BiddingProduct>> getAllBiddindProducts();
+	public void addNewBidValue(String eventid,String productid,String bidValue,String username);
 }

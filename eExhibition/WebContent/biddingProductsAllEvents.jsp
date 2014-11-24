@@ -9,18 +9,20 @@
 			<link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
 			<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"></script>
 			<script src="${pageContext.request.contextPath}/javascripts/javascript.js"></script>
+			
 	</head><!--end of head-->
 			<body><!--starting of body-->
 			<%@ include file="bannerTop.jsp" %> 
 			<div>
 				<c:forEach items="${requestScope.bidproduct}" var="bidMap">
 					<div>
-						<input type="hidden" value="<c:out value="${bidMap.key}"></c:out>"/>						
+						<%-- <input type="hidden" value="<c:out value="${bidMap.key}"></c:out>"/> --%>						
 						<span>Event Id: <c:out value="${bidMap.key}"></c:out></span>
 						<br/>
 						
 						<c:forEach items="${bidMap.value}" var="bidProduct">
 							<div>
+							<form action="${pageContext.request.contextPath}/registeredUserResponseManager"  method="post">
 								<span>Product Name: <c:out value="${bidProduct.getProduct().getProductTitle()}"></c:out></span> 
 								<span>Start Date: <c:out value="${bidProduct.getStartDate()}"></c:out></span>
 								 <span>End Date: <c:out value="${bidProduct.getEndDate()}"></c:out></span>
@@ -37,7 +39,14 @@
 								<span>Price: <c:out value="${bidProduct.getTopPrice2()}"></c:out></span>
 								<span>3. User Name: <c:out value="${bidProduct.getUser3().getName()}"></c:out></span> 
 								<span>Price: <c:out value="${bidProduct.getTopPrice3()}"></c:out></span>
+								<input type="hidden" name="topPrice" value="<c:out value="${bidProduct.getClosePrice()}"></c:out>"/>
+								<input type="hidden" name="eventid" value="<c:out value="${bidMap.key}"></c:out>"/>
+								<input type="hidden" name="productid" value="<c:out value="${bidProduct.getProduct().getProductId()}"></c:out>"/>
 								
+								<input type="text" name="bidValue"/>
+								<input type="submit" name="action" value="My Bid"/>
+								
+								</form>
 							</div>
 						</c:forEach>
 					
