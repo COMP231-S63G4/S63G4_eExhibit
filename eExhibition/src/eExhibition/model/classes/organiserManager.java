@@ -272,30 +272,4 @@ try {
 			return events;
 	}
 
-
-
-	public int numberOfSoldTickets() {
-		int noOfSoldTickets=0;
-		try {
-		    
-			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
-		    Statement st=con.createStatement();
-		    noOfSoldTickets=st.executeUpdate("Select COUNT(*) FROM ticket");
-						
-			st.close();
-			
-			con.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			return noOfSoldTickets;
-		
 }
-}
-

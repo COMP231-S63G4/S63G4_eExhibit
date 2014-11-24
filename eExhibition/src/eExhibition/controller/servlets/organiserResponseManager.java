@@ -216,15 +216,6 @@ public class organiserResponseManager extends HttpServlet {
 			request.setAttribute("events", events);						
 			rd = request.getRequestDispatcher("/viewTickets.jsp");
 		}
-		
-		else if(action.equals("Total Number of Sold Tickets"))
-		{
-			
-			int noOfSoldTickets=om.numberOfSoldTickets();
-			request.setAttribute("tickets", noOfSoldTickets);						
-			rd = request.getRequestDispatcher("/viewTickets.jsp");
-		}
-		
    else if(action.equals("View")){
 	   
 	   String eventId=request.getParameter("events");			
