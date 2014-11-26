@@ -19,6 +19,7 @@ import eExhibition.model.classes.adminManager;
 import eExhibition.model.classes.eventManager;
 import eExhibition.model.classes.exhibitorManager;
 import eExhibition.model.classes.loginManager;
+import eExhibition.model.classes.notificationManager;
 import eExhibition.model.classes.organiserManager;
 
 /**

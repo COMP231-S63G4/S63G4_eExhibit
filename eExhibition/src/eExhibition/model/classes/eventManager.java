@@ -477,6 +477,74 @@ try {
 				    				
 				    				return soldproducts;
 							}
+
+
+
+							@Override
+							public Product updateProduct(Product changedProduct) {
+								int flag=0;
+				    			try {
+				    				
+				    				Class.forName("com.mysql.jdbc.Driver");				
+				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				    			    Statement st=con.createStatement();
+				    				flag=st.executeUpdate("Update products set productTitle='"+
+				    						changedProduct.getProductTitle()+"',description='"+changedProduct.getDescription()+"',image='"+changedProduct.getImage()
+				    			    +"',price='"+changedProduct.getPrice()+"',type='"+changedProduct.getType()+"',exhibitorUname='"+changedProduct.getExhibitorUname()+"',"
+				    			    		+ "kind='"+changedProduct.getKind()+"' where productId='"+changedProduct.getProductId()+"'");
+				    			    	
+				    				st.close();
+				    				
+				    				con.close();
+				    				} catch (SQLException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				} catch (ClassNotFoundException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				}
+				    				if(flag!=0)
+				    				{
+				    					return changedProduct;
+				    				}
+				    				else{
+				    					return null;
+				    				}
+				    			
+				    		}
+
+
+
+
+							@Override
+							public Map<String, Product> getAllProducts() {
+								Map<String,Product> products=new HashMap<String, Product>();
+				    			try {
+				    			    
+				    				Class.forName("com.mysql.jdbc.Driver");				
+				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				    			    Statement st=con.createStatement();
+				    			    ResultSet rs=st.executeQuery("Select productId,productTitle,description,image,price,type,exhibitorUname,kind from products");
+				    			    while(rs.next())
+				    			    {
+				    			    	Product product=new Product(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),rs.getString(7),rs.getString(8));
+				    			    	products.put(rs.getString(1), product);
+				    			    }
+				    				rs.close();
+				    				st.close();			
+				    				con.close();
+				    				} catch (SQLException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				} catch (ClassNotFoundException e) {
+				    					// TODO Auto-generated catch block
+				    					e.printStackTrace();
+				    				} 
+				    				
+				    				
+				    				return products;
+				    			
+				    		}
 				    			
 
 								

@@ -62,13 +62,13 @@ var editready=1;
 		<%-- <th><c:out value="${product.key}"></c:out></th> --%>
 		
 		<th><input type="hidden" name="productid" value="<c:out value="${product.key}"></c:out>"/>
-		<input type="text" size="8" onfocus="this.blur();" class="noedit abc" name="productname" value="<c:out value="${product.value.getProductName()}"></c:out>"/></th>
-		<th><input type="text" size="8" onfocus="this.blur();" class="noedit abc"   name="details" value="<c:out value="${product.value.getDetails()}"></c:out>"/></th>
+		<input type="text" size="8" onfocus="this.blur();" class="noedit abc" name="producttitle" value="<c:out value="${product.value.getProductTitle()}"></c:out>"/></th>
+		<th><input type="text" size="8" onfocus="this.blur();" class="noedit abc"   name="description" value="<c:out value="${product.value.getDescription()}"></c:out>"/></th>
 		<th><input type="text" size="8" onfocus="this.blur();" class="noedit abc" name="image" value="<c:out value="${product.value.getImage()}"></c:out>"/></th>
 		<th><input type="text" size="8" onfocus="this.blur();" class="noedit abc" name="price" value="<c:out value="${product.value.getPrice()}"></c:out>"/></th>
 		<th><input type="text" size="8" onfocus="this.blur();" class="noedit abc" name="type" value="<c:out value="${product.value.getType()}"></c:out>"/></th>
-		<th><input type="text" size="8" onfocus="this.blur();" class="noedit abc" name="exhibitorname" value="<c:out value="${product.value.getExhibitorName()}"></c:out>"/></th>
-		<th><span style="cursor:pointer;" class="editbutton">Edit</span><input type="submit" style="display:none;" name="action" value="UpdateProduct"/></th>
+		<th><input type="text" size="8" onfocus="this.blur();" class="noedit abc" name="exhibitoruname" value="<c:out value="${product.value.exhibitorUname()}"></c:out>"/></th>
+		<th><span style="cursor:pointer;" class="editbutton">Edit</span><input type="submit" style="display:none;" name="action" value="Update Product"/></th>
 		<th><input type="submit" class="delBtn" name="action" value="Delete"/><span class="cancelbutton" style="cursor:pointer;display:none;">Cancel</span></th>
 		</tr>
 		<c:if test="${requestScope.Role=='Exhibitor'}">

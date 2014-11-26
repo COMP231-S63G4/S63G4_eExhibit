@@ -67,7 +67,7 @@ public class Product {
 			
 			public String getPrice()
 			{
-			return productTitle;
+			return price;
 			}
 			
 			public void setPrice(String price)
@@ -89,12 +89,12 @@ public class Product {
 			
 			public String getExhibitorUname()
 			{
-			return productTitle;
+			return exhibitorUname;
 			}
 			
 			public void setExhibitorUname(String exhibitorUname)
 			{
-			this.productTitle=exhibitorUname;
+			this.exhibitorUname=exhibitorUname;
 			
 			}
 			

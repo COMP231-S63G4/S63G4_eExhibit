@@ -27,4 +27,6 @@ public interface eventCatalog {
 	//bidding functions
 	public Map<String, ArrayList<BiddingProduct>> getAllBiddindProducts();
 	public Map<String,SoldProduct> getAllSoldProducts();
+	public Product updateProduct(Product changedProduct);
+	public Map<String,Product> getAllProducts();
 }
