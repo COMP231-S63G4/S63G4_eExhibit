@@ -76,7 +76,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		{
 			String uname=(String) session.getAttribute("userName");
 			//User exhibitor=em.getExhibitor(uname);
-			request.setAttribute("password",am.getAllNotificationOfUserName(uname)); 
+			request.setAttribute("notification",am.getAllNotificationOfUserName(uname)); 
 			
 			rd = request.getRequestDispatcher("/displayNotification.jsp");
 		}
