@@ -41,13 +41,14 @@ public class notificationManager implements notificationCatalog {
 			java.sql.Connection con = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 			Statement st = con.createStatement();
-			st.executeUpdate("Insert into notification(uname,notification,date) values('"
+			st.executeUpdate("Insert into notification(uname,notification,date,status) values('"
 					+ uname
 					+ "','"
 					+ notification
 					+ "','"
 					+ new java.sql.Timestamp(new java.util.Date().getTime())
-					+ "')");
+					
+					+ "','notviewed')");
 
 			st.close();
 			con.close();
@@ -65,15 +66,17 @@ public class notificationManager implements notificationCatalog {
 	public Map<String,Notification> getAllNotificationOfUserName(String uname) {
 		
 		Map<String,Notification> notifications=new HashMap<String, Notification>();
-		
+		int flag=0;
 		try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
 			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 		    Statement st=con.createStatement();
-		    ResultSet rs=st.executeQuery("Select uname,notification,date from notification where uname='"+uname+"'");
+		    ResultSet rs=st.executeQuery("Select uname,notification,date from notification where uname='"+uname+"' and status='notviewed'");
+		    st.executeUpdate("Update notification set status='viewed' where uname='"+uname+"'");
 		    while(rs.next())
 		    {
+		    	flag=1;
 		    	DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		    	String sDate = String.valueOf(rs.getTimestamp("date"));		    	
 		    	Date stDate = sdf.parse(sDate);		    	
@@ -94,8 +97,12 @@ public class notificationManager implements notificationCatalog {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
-			
+			if(flag==0)
+			{
+				return null;
+			}else{
 			return notifications;
+			}
 	}
 
 }

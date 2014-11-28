@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -19,7 +20,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import eExhibition.data.classes.Notification;
 import eExhibition.model.classes.loginManager;
+import eExhibition.model.classes.notificationManager;
 
 
 
@@ -61,14 +64,23 @@ public class loginServlet extends HttpServlet {
 		
 		RequestDispatcher rd = null ;
 		loginManager lm=loginManager.getInstance();
+		notificationManager nm=notificationManager.getInstance();
 		String type=lm.validateLoginDetails(name);//,pass);
 			if(type!=null)
 			{
 				session.setAttribute("userName", name);//Later fetch user name-JAGRAJ SIDHU
+				Map<String,Notification> notifications=nm.getAllNotificationOfUserName(name);
+				if(notifications==null)
+				{
+					request.setAttribute("notiStatus", "old");
+				}
+				else{
+					request.setAttribute("notiStatus", "new");
+				}
 				
 				if(type.equals("admn"))
 				{
-				
+					
 					rd = request.getRequestDispatcher("/AdminHomePage.jsp");
 				
 				}
