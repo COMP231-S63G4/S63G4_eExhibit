@@ -52,7 +52,7 @@ var editready=1;
 
 <table border="1" align="center" style="color:white">
 <tr>
-<!-- <th>Event Id</th> --><th>Product Name</th><th>Details</th><th>Image</th><th>Price</th><th>Type</th><th>Exhibitor Name</th>
+<th>Select</th><th>Product Name</th><th>Details</th><th>Image</th><th>Price</th><th>Type</th><th>Exhibitor Name</th>
 </tr>
 
 <c:forEach items="${requestScope.products}" var="product">
