@@ -47,7 +47,7 @@ public class notificationManager implements notificationCatalog {
 					+ notification
 					+ "','"
 					+ new java.sql.Timestamp(new java.util.Date().getTime())
-					
+
 					+ "','notviewed')");
 
 			st.close();
@@ -62,47 +62,55 @@ public class notificationManager implements notificationCatalog {
 		return true;
 	}
 
+	// functionality to fetch the notifications from the database of respective
+	// user
+
 	@Override
-	public Map<String,Notification> getAllNotificationOfUserName(String uname) {
-		
-		Map<String,Notification> notifications=new HashMap<String, Notification>();
-		int flag=0;
+	public Map<String, Notification> getAllNotificationOfUserName(String uname) {
+
+		Map<String, Notification> notifications = new HashMap<String, Notification>();
+		int flag = 0;
 		try {
-		    
-			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
-		    Statement st=con.createStatement();
-		    ResultSet rs=st.executeQuery("Select uname,notification,date from notification where uname='"+uname+"' and status='notviewed'");
-		    st.executeUpdate("Update notification set status='viewed' where uname='"+uname+"'");
-		    while(rs.next())
-		    {
-		    	flag=1;
-		    	DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-		    	String sDate = String.valueOf(rs.getTimestamp("date"));		    	
-		    	Date stDate = sdf.parse(sDate);		    	
-		    	notifications.put(rs.getString(1),new Notification(rs.getString(1),rs.getString(2),stDate));
-		    	
-		    }
-		  
-			rs.close();
-			st.close();			
-			con.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
-			if(flag==0)
-			{
-				return null;
-			}else{
-			return notifications;
+
+			Class.forName("com.mysql.jdbc.Driver");
+			java.sql.Connection con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			Statement st = con.createStatement();
+			ResultSet rs = st
+					.executeQuery("Select uname,notification,date from notification where uname='"
+							+ uname + "' and status='notviewed'");
+			st.executeUpdate("Update notification set status='viewed' where uname='"
+					+ uname + "'");
+			while (rs.next()) {
+				flag = 1;
+				DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+				String sDate = String.valueOf(rs.getTimestamp("date"));
+				Date stDate = sdf.parse(sDate);
+				notifications.put(rs.getString(1),
+						new Notification(rs.getString(1), rs.getString(2),
+								stDate));
+
 			}
+
+			rs.close();
+			st.close();
+			con.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (flag == 0) {
+			return null;
+		} else {
+			return notifications;
+		}
 	}
 
 }
