@@ -9,6 +9,14 @@
 			<link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
 			<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"></script>
 			<script src="${pageContext.request.contextPath}/javascripts/javascript.js"></script>
+			
+			 <script src="zoomSlider.js" type="text/javascript"></script>
+    <link href="zoomslider.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        body {background:#EEE;padding-top:50px;font:normal 12px Arial;}
+        .nav {width:840px; margin:0 auto;margin-top:-10px;}
+        .nav a {color:#0066FF;}
+    </style>
 	</head><!--end of head-->
 			<body><!--starting of body-->
 					<%@ include file="bannerTop.jsp" %> 
@@ -57,6 +65,10 @@
                 <span><img src="images/g10C.jpg" /></span>
                 <span><img src="images/g11C.jpg" /></span>
 				<span><img src="images/g12C.jpg" /></span>
+				<span><img src="images/g13C.jpg" /></span>
+				<span><img src="images/g14C.jpg" /></span>
+				 <span><img src="images/g15C.jpg" /></span>
+				 <span><img src="images/g12C.jpg" /></span>
 				<span><img src="images/g13C.jpg" /></span>
 				<span><img src="images/g14C.jpg" /></span>
 				 <span><img src="images/g15C.jpg" /></span>
