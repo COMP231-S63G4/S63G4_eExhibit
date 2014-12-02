@@ -13,19 +13,23 @@
 			<body><!--starting of body-->
 					 <%@ include file="bannerTop.jsp" %> 
 					 
-					 <div id="leftside">
+					
+									
+									
+					
+<div id="leftside11">
 									
 									<img src="images/hotdeals.png"> </br></br>
-									<strong style="color:white">Get 40% off on books online Exhibition...Use Coupon BOOKS EXHIBITION   <a href=""><strong style="color:white"> CHECK HERE </a></br></br>
+									<strong style="color:white">Get 40% off on books online Exhibition...Use Coupon BOOKS EXHIBITION   <a href="http://www.w3schools.com/html/"><strong style="color:white"> CHECK HERE </a></br></br></br>
 									
-									Get 50% off on painting Exhibition...Use Coupon PainTing2014  <a href=""><strong style="color:white"> CHECK HERE </a></br></br>
+									Get 50% off on painting Exhibition...Use Coupon PainTing2014  <a href="http://www.w3schools.com/html/"><strong style="color:white"> CHECK HERE </a></br></br></br>
 									
-									BUY ONE AND GET SECOND ON HALF PRICE....for the fashion show exhibition... buy one ticket and get second ticket free..SPECIAL PACKAGES FOR GROUPS   <a href=""><strong style="color:white"> CHECK HERE </a></br></br>
+									BUY ONE AND GET SECOND ON HALF PRICE....for the fashion show exhibition... buy one ticket and get second ticket free..SPECIAL PACKAGES FOR GROUPS   <a href="http://www.w3schools.com/html/"><strong style="color:white"> CHECK HERE </a></br></br></br>
 									
 									
-									BUY ADVANCE TICKETS FOR CAR EXHIBITION AND GET SPECIAL FINANCIAL COUPONS TO BUY THE BRAND NEW CARS.  <a href=""><strong style="color:white"> CHECK HERE </a></br></br>
+									BUY ADVANCE TICKETS FOR CAR EXHIBITION AND GET SPECIAL FINANCIAL COUPONS TO BUY THE BRAND NEW CARS.  <a href="http://www.w3schools.com/html/"><strong style="color:white"> CHECK HERE </a></br></br></br>
 								
-									
+									special deals on jewellery exhibition...<a href="http://www.w3schools.com/html/"><strong style="color:white"> CHECK HERE </a></br></br></br></br>
 									<img src="images/hotdeals.png">
 									
 									
@@ -38,16 +42,18 @@
 									</div>
 					
 							</div>
-        
-                     <div id="rightside">
+        <div id="rightside11">
+					 <img src="images/hotdeals.png"> </br></br>
 					 
-					 
-					
-				
-					 
+					  <img src="images/P1.jpg"> 
+					  
+					  <img src="images/P2.jpg">
+					  <img src="images/P3.jpeg"></br>
+					  <img src="images/P4.jpg">
+					  <img src="images/P5.jpg">
+					  <img src="images/P6.jpg">
 							</div> 
-					 
-					 
+							  		 
 					 
 					 
 					   <%@ include file="bannerBottom.jsp" %> 	
