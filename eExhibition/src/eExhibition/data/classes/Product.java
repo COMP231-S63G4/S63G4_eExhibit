@@ -56,7 +56,7 @@ public class Product {
 			
 			public String getDescription()
 			{
-			return productTitle;
+			return description;
 			}
 			
 			public void setDescription(String description)

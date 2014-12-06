@@ -57,6 +57,8 @@ public class registeredUserManager implements registeredUserCatalog {
 			}
 
 	public Product reportedContent(Product product){
+		String description="";
+		String userId="";
 		try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
@@ -75,7 +77,7 @@ public class registeredUserManager implements registeredUserCatalog {
 				e.printStackTrace();
 			}
 			
-			return registeredUser;
+			return product;
 		
 	}
 	

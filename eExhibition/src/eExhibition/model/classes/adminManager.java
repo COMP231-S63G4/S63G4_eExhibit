@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import eExhibition.data.classes.ReportContent;
 import eExhibition.data.classes.User;
 
 public class adminManager implements adminCatalog {
@@ -111,6 +112,26 @@ public class adminManager implements adminCatalog {
 			
 	}
 
+	public boolean deleteReportedContent(String productid,String userid){
+		
+		try {
+		    
+			Class.forName("com.mysql.jdbc.Driver");				
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+		    Statement st=con.createStatement();
+		    
+			st.executeUpdate("Delete from reportedcontent where productid='"+productid+"' and userid='"+userid+"'");
+						
+			st.close();
+			
+			con.close();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				return false;
+			} 
+				return true;
+		
+	}
 	@Override
 	public User deleteOrganiser(String uname) {
 		User deletedOrganiser=null;
@@ -194,7 +215,34 @@ public class adminManager implements adminCatalog {
 			return users;
 		}
 
-
+	public ArrayList<ReportContent> getAllReportedContent(){
+		ArrayList<ReportContent> contents=new ArrayList<ReportContent>();
+		try {
+			    
+				Class.forName("com.mysql.jdbc.Driver");				
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			    Statement st=con.createStatement();
+				
+				ResultSet rs=st.executeQuery("Select productid,description,userid from reportedcontent ");
+				while(rs.next())
+				{
+					contents.add(new ReportContent(rs.getString(1),rs.getString(2),rs.getString(3)));
+				}
+				st.close();
+				rs.close();
+				con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			return contents;
+		
+	}
+	
 	@Override
 	public ArrayList<User> getAllUsers(String type) {
 		ArrayList<User> users=new ArrayList<User>();

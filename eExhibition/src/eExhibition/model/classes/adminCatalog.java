@@ -2,6 +2,7 @@ package eExhibition.model.classes;
 
 import java.util.ArrayList;
 
+import eExhibition.data.classes.ReportContent;
 import eExhibition.data.classes.User;
 
 public interface adminCatalog {
@@ -18,4 +19,6 @@ public interface adminCatalog {
 	public ArrayList<User> getAllUsers(String type);
 	public ArrayList<User> getAllUsersById(String type,String uname);
 	public ArrayList<String> getAllUsersId(String type);
+	public ArrayList<ReportContent> getAllReportedContent();
+	public boolean deleteReportedContent(String productid,String userid);
 }
