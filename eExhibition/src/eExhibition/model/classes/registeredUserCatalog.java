@@ -9,4 +9,7 @@ public interface registeredUserCatalog {
 	public User updateRegisteredUserDetail(User registeredUser, String oldUserId,	String password);
 	public User getRegisteredUser(String uname);
 	
+	
+	
+	
 }

@@ -113,4 +113,36 @@ public class notificationManager implements notificationCatalog {
 		}
 	}
 
+	@Override
+	public boolean sendUserNotificationOfWonBiddingProduct(String userId,
+			String notification) {
+		// TODO Auto-generated method stub
+		try {
+
+			Class.forName("com.mysql.jdbc.Driver");
+			java.sql.Connection con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			Statement st = con.createStatement();
+			st.executeUpdate("Insert into notification(uname,notification,date,status) values('"
+					+ userId
+					+ "','"
+					+ notification
+					+ "','"
+					+ new java.sql.Timestamp(new java.util.Date().getTime())
+
+					+ "','notviewed')");
+
+			st.close();
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return true;
+		
+	}
+
 }

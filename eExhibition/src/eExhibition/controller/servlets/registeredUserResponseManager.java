@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import eExhibition.data.classes.BiddingProduct;
 import eExhibition.data.classes.Event;
 import eExhibition.data.classes.ExhibitorEvent;
+import eExhibition.data.classes.Product;
 import eExhibition.data.classes.User;
 import eExhibition.model.classes.adminManager;
 import eExhibition.model.classes.eventManager;
@@ -110,8 +111,8 @@ public class registeredUserResponseManager extends HttpServlet {
 		if(action.equals("Reported Content"))
 		{
 			String productid=request.getParameter("productid");
-			Product product=rm.getProductById(productid);
-			Product reportedContent=rm.reportedContent(product)
+			Product product=em.getProductById(productid);
+			Product reportedContent=rm.reportedContent(product);
 			rd = request.getRequestDispatcher("/ViewProducts.jsp");
 		}
 		else if(action.equals("My Bid"))
