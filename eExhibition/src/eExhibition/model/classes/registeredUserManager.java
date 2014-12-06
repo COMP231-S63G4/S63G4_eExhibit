@@ -4,6 +4,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import eExhibition.data.classes.Product;
 import eExhibition.data.classes.User;
 
 public class registeredUserManager implements registeredUserCatalog {
@@ -54,7 +56,28 @@ public class registeredUserManager implements registeredUserCatalog {
 				
 			}
 
-	
+	public Product reportedContent(Product product){
+		try {
+		    
+			Class.forName("com.mysql.jdbc.Driver");				
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+		    Statement st=con.createStatement();
+			st.executeUpdate("Insert into reportedContent='"+product.getProductId()+"',password='"+description+"' where uname='"+userId+"'");
+			
+			st.close();
+			
+			con.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return registeredUser;
+		
+	}
 	
 	
 	
