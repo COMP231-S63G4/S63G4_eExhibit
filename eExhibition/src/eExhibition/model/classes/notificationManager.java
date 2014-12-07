@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -66,9 +67,9 @@ public class notificationManager implements notificationCatalog {
 	// user
 
 	@Override
-	public Map<String, Notification> getAllNotificationOfUserName(String uname) {
+	public ArrayList<Notification> getAllNotificationOfUserName(String uname) {
 
-		Map<String, Notification> notifications = new HashMap<String, Notification>();
+		ArrayList<Notification> notifications = new ArrayList<Notification>();
 		int flag = 0;
 		try {
 
@@ -79,14 +80,14 @@ public class notificationManager implements notificationCatalog {
 			ResultSet rs = st
 					.executeQuery("Select uname,notification,date from notification where uname='"
 							+ uname + "' and status='notviewed'");
-			st.executeUpdate("Update notification set status='viewed' where uname='"
-					+ uname + "'");
+			/*st.executeUpdate("Update notification set status='viewed' where uname='"
+					+ uname + "'");*/
 			while (rs.next()) {
 				flag = 1;
 				DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 				String sDate = String.valueOf(rs.getTimestamp("date"));
 				Date stDate = sdf.parse(sDate);
-				notifications.put(rs.getString(1),
+				notifications.add(
 						new Notification(rs.getString(1), rs.getString(2),
 								stDate));
 

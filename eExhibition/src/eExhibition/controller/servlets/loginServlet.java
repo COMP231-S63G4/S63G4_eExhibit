@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
 
@@ -66,14 +67,14 @@ public class loginServlet extends HttpServlet {
 		if (type != null) {
 			session.setAttribute("userName", name);// Later fetch user
 													// name-JAGRAJ SIDHU
-			Map<String, Notification> notifications = nm
+			ArrayList<Notification> notifications = nm
 					.getAllNotificationOfUserName(name);
 			if (notifications == null) {
 				request.setAttribute("notiStatus", "old");
 			} else {
 				request.setAttribute("notiStatus", "new");
 			}
-
+			request.setAttribute("topNotification", notifications);
 			if (type.equals("admn")) {
 
 				rd = request.getRequestDispatcher("/AdminHomePage.jsp");

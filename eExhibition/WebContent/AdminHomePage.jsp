@@ -60,7 +60,7 @@
     </div>
     <form action="${pageContext.request.contextPath}/adminResponseManager" method="post">
     
-    <div id="adminDetailDiv" style="position:absolute;right:222px;top:268px;z-index:2;display:none;border:1px #000 solid;">
+    <div id="adminDetailDiv" style="background-color: infobackground;position:absolute;right:222px;top:268px;z-index:2;display:none;border:1px #000 solid;">
 	   
 	    <input type="text" name="changedUname" placeholder="New UserName"></input>
 	    <br/><br/>
