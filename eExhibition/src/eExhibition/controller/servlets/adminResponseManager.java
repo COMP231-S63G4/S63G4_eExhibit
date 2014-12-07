@@ -210,6 +210,16 @@ public class adminResponseManager extends HttpServlet {
 			
 			
 		}
+		//delted reported content
+		else if(action.equals("Delete")){
+			String uname=request.getParameter("uname");
+			User deletedOrganiser=am.deleteOrganiser(uname);
+			
+			 request.setAttribute("uname", uname); 
+			 request.setAttribute("organiser", deletedOrganiser);
+			 request.setAttribute("CALLER", "Delete Organiser");
+			 rd = request.getRequestDispatcher("/viewReportedContent.jsp");
+	}
 		
 		
 		
