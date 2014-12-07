@@ -1,0 +1,171 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Registration</title>
+<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"/></script>
+<link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
+<script src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
+<style type="text/css">
+	.noBorder
+	{
+		border:none;
+	}
+</style>
+<script>
+	$(document).ready(function(){
+		  $("#autoGenerate").click(function(){
+			  if($("#name").val().trim()==""||$("#address").val().trim()==""||
+					  $("#phone").val().trim()==""||$("#email").val().trim()=="")
+			  {
+			  	alert("Please provide all above details to autogenerate username and password");
+			  }
+			  else{
+				  var size=($("#name").val()).length;
+				  size=(size>3)?4:size>2?3:size>1?2:1;
+				var username=($("#name").val().trim()).substr(0,size)+
+							($("#email").val().replace(/\./g,'').replace(/\@/g,'').trim()).substr(0,3)
+							+Math.ceil(Math.random()*1000000);
+				var password=($("#email").val().replace(/\./g,'').replace(/\@/g,'').trim()).substr(0,3)+$("#phone").val().trim().replace(/\ /g,'').replace(/\+/g,'').substr(0,5)+$("#name").val().trim().substr(0,size)
+					+Math.ceil(Math.random()*100);
+				$("#uname").val(username);
+				$("#password").val(password);
+			}
+		   
+		  });
+	});
+</script>
+
+</head>
+<body>
+ <%@ include file="bannerTop.jsp" %> 
+
+<style>
+
+#container{
+position: absolute;
+height: 60px;
+width: 1000px;
+left: 80px;
+top: 40px;
+
+}
+#fieldnames
+{
+position: absolute;
+
+width: 120px;
+
+}
+#fields
+{
+position: absolute;
+left: 120px;
+}
+</style>
+<div id = "container">
+<div id = "fieldnames">
+<label for="Uploading Image">Upload Image:</label><br/><br/><br/>
+<label for="description">Item Decription:</label><br/><br/>
+<label for="description">Item Decription:</label></div>
+
+<div id=fields>
+<form action="/browse images" method="post">
+        <input type="FILE" id="name" />
+<br>
+<br>
+<br/>
+        <textarea name = "description"></textarea>
+<br/>
+     <button type="button">load</button>
+    </div>
+   
+</form>
+</div>
+<style>
+#container{
+position: absolute;
+height: 60px;
+width: 1000px;
+left: 80px;
+top: 40px;
+}
+#fieldnames
+{
+position: absolute;
+
+width: 120px;
+
+}
+#fields
+{
+position: absolute;
+left: 120px;
+}
+</style>
+<div id = "container">
+<div id = "fieldnames">
+<label for="Uploading Image">Upload Image:</label><br/><br/><br/>
+<label for="description">Item Decription:</label><br/><br/>
+<label for="description">Item Decription:</label></div>
+
+<div id=fields>
+<form action="/browse images" method="post">
+        <input type="FILE" id="name" />
+<br>
+<br>
+<br/>
+        <textarea name = "description"></textarea>
+<br/>
+     <button type="button">load</button>
+    </div>
+   
+</form>
+</div>
+<style>
+#container{
+position: absolute;
+height: 60px;
+width: 1000px;
+left: 80px;
+top: 40px;
+}
+#fieldnames
+{
+position: absolute;
+
+width: 120px;
+
+}
+#fields
+{
+position: absolute;
+left: 120px;
+}
+</style>
+<div id = "container">
+<div id = "fieldnames">
+<label for="Uploading Image">Upload Image:</label><br/><br/><br/>
+<label for="description">Item Decription:</label><br/><br/>
+<label for="description">Item Decription:</label></div>
+
+<div id=fields>
+<form action="/browse images" method="post">
+        <input type="FILE" id="name" />
+<br>
+<br>
+<br/>
+        <textarea name = "description"></textarea>
+<br/>
+     <button type="button">load</button>
+    </div>
+   
+</form>
+</div>
+	 <%@ include file="bannerBottom.jsp" %> 		
+</body>
+</html>
