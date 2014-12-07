@@ -55,7 +55,9 @@
    
     <img src="${pageContext.request.contextPath}/images/settingIcon.png" id="changeAdminDetails"
     style="position:absolute;right:205px;top:248px;width:25px;height:25px;"/>
-    
+    <div  style="position:absolute;right:230px;top:248px;">
+    	<%@ include file="sideMenuNotificationLogout.jsp" %> 
+    </div>
     <form action="${pageContext.request.contextPath}/adminResponseManager" method="post">
     
     <div id="adminDetailDiv" style="position:absolute;right:222px;top:268px;z-index:2;display:none;border:1px #000 solid;">

@@ -17,8 +17,8 @@ public interface eventCatalog {
 	public Event updateEvent(Event changedEvent);
 	public Event deleteEvent(Event event);
 	public boolean eventIdExists(String eventid);
-	public Product addProductEvent(Product newProduct);
-	public boolean productIdExists(String productid);
+	public Product addProductEvent(Product newProduct);//?? For which event?	
+	public boolean productIdExists(String productid);//Ambiguous--
 	public Product addProduct(Product product);
 	public Product getProductById(String productId);
 	

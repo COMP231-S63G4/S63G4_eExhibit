@@ -49,14 +49,6 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		rd.forward(request, response);	    		
 		return;
 	}
-	if(action.equals("notificationIcon"))
-		{
-			String uname=(String) session.getAttribute("userName");
-			//User exhibitor=em.getExhibitor(uname);
-			request.setAttribute("notification",am.getAllNotificationOfUserName(uname)); 
-			
-			rd = request.getRequestDispatcher("/displayNotification.jsp");
-		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

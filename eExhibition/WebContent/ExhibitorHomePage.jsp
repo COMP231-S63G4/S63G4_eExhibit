@@ -33,7 +33,10 @@
   
   <body style="text-align:center;">
   <%@ include file="bannerTop.jsp" %> 
-   Hello Exhibitor <br>
+   Hello Exhibitor <br/>
+    <div  style="position:absolute;right:230px;top:248px;">
+    	<%@ include file="sideMenuNotificationLogout.jsp" %> 
+    </div>
     <form action="${pageContext.request.contextPath}/exhibitorResponseManager" method="post">
    <table align="center">
 		    <tr>

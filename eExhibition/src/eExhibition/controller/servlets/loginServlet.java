@@ -57,12 +57,12 @@ public class loginServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		String name = request.getParameter("name");
-		// String pass=request.getParameter("pass");
+		String pass=request.getParameter("pass");
 
 		RequestDispatcher rd = null;
 		loginManager lm = loginManager.getInstance();
 		notificationManager nm = notificationManager.getInstance();
-		String type = lm.validateLoginDetails(name);// ,pass);
+		String type = lm.validateLoginDetails(name ,pass);
 		if (type != null) {
 			session.setAttribute("userName", name);// Later fetch user
 													// name-JAGRAJ SIDHU

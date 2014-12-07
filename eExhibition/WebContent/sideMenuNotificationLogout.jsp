@@ -1,23 +1,23 @@
 <div>
 	<form action="${pageContext.request.contextPath}/sideMenuManager"
 		method="post">
-		<img id="notificationIcon"
-			src="${pageContext.request.contextPath}/images/notificationIcon.png"
-			width="200px" height="95px" />
-		<c:if test="${requestScope.notiStatus="new"}">
-			<img id="notificationIcon"
-				src="${pageContext.request.contextPath}/images/notificationBlueIcon.png"
-				width="200px" height="95px" />
-		</c:if>
-		<c:if test="${requestScope.notiStatus="old"}">
-			<img id="notificationIcon"
-				src="${pageContext.request.contextPath}/images/notificationIcon.png"
-				width="200px" height="95px" />
-		</c:if>
-		<img id="logoutIcon"
-			src="${pageContext.request.contextPath}/images/logoutIcon.png"
-			width="200px" height="95px" /> <input type="submit" id="btnSideMenu"
-			style="visibility: none;" name="action" value="" />
+		<div style="height:25px;">
+			<c:if test="${requestScope.notiStatus=='new'}">
+
+				<img id="notificationIcon"
+					src="${pageContext.request.contextPath}/images/notificationBlueIcon.png"
+					width="25px" height="25px" />
+			</c:if>
+			<c:if test="${requestScope.notiStatus=='old'}">
+				<img id="notificationIcon"
+					src="${pageContext.request.contextPath}/images/notificationIcon.png"
+					width="25px" height="25px" />
+			</c:if>
+			<img id="logoutIcon"
+				src="${pageContext.request.contextPath}/images/logoutIcon.png"
+				width="25px" height="25px" /> <input type="submit" id="btnSideMenu"
+				style="display: none;" name="action" value="" />
+		</div>
 		<script>
 			$("#notificationIcon").click(
 					function() {
