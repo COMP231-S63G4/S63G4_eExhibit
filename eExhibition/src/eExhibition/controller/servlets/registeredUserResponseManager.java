@@ -108,13 +108,7 @@ public class registeredUserResponseManager extends HttpServlet {
 								
 			rd = request.getRequestDispatcher("/biddingProductsAllEvents.jsp");
 		}
-		if(action.equals("Reported Content"))
-		{
-			String productid=request.getParameter("productid");
-			Product product=em.getProductById(productid);
-			Product reportedContent=rm.reportedContent(product);
-			rd = request.getRequestDispatcher("/ViewProducts.jsp");
-		}
+		
 		else if(action.equals("My Bid"))
 		{
 			String earlierTopUser=(String) request.getAttribute("top1");
@@ -122,6 +116,13 @@ public class registeredUserResponseManager extends HttpServlet {
 			nm.sendNotification(earlierTopUser, "Hey!!! Somebody has bid higger than you for product "
 					+".");									
 			rd = request.getRequestDispatcher("/biddingProductsAllEvents.jsp");
+		}
+		if(action.equals("Reported Content"))
+		{
+			String productid=request.getParameter("productid");
+			Product product=em.getProductById(productid);
+			Product reportedContent=rm.reportedContent(product);
+			rd = request.getRequestDispatcher("/ViewRepotedContent.jsp");
 		}
 		
 	
