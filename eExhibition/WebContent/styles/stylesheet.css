@@ -117,6 +117,24 @@ body {
 }
 
 
+#product_text
+{
+ font-size: 18px;
+	color: #ffffff;
+ }
+ 
+ #product_left
+{
+float:left;
+width:50%;
+
+}
+
+#product_right
+{
+float: right;
+width:50%;
+}
 #menu {
 	clear: both;
 	width: 980px;
