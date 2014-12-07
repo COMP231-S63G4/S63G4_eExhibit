@@ -220,7 +220,17 @@ public class adminResponseManager extends HttpServlet {
 			 request.setAttribute("CALLER", "Delete Organiser");
 			 rd = request.getRequestDispatcher("/viewReportedContent.jsp");
 	}
-		
+	////
+		else if(action.equals("View Reported Content")){
+			
+			String uname=request.getParameter("uname");
+			User organiser=am.getOrganiser(uname);
+			request.setAttribute("password",am.getPasswordOfUserName(uname)); 
+			 request.setAttribute("uname", uname); 
+			 request.setAttribute("organiser", organiser);
+			 request.setAttribute("CALLER", "Display Organiser");
+			 rd = request.getRequestDispatcher("/displayOrganiser.jsp");
+		}
 		
 		
 		
