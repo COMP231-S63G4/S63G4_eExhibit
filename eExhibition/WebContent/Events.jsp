@@ -15,7 +15,9 @@
 	</head><!--end of head-->
 			<body><!--starting of body-->
 				<%@ include file="bannerTop.jsp" %> 
-							
+						<script>
+						$("#eventsPage").addClass("current");
+</script>	
 		
     <div id="sliderFrame">
         <div id="slider">

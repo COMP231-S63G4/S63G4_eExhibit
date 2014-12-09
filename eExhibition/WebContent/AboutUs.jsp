@@ -12,6 +12,9 @@
 		</head><!--end of head-->
 			<body><!--starting of body-->
 					 <%@ include file="bannerTop.jsp" %> 
+					 <script>
+						$("#aboutUsPage").addClass("current");
+					 </script>
                         <div id="AboutUsLeft">
                          
 

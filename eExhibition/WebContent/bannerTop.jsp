@@ -18,13 +18,13 @@
         </div>
 		    <div id="menu">
 			    <ul>
-				    <li><a class="current"  href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
-				    <li><a href="${pageContext.request.contextPath}/AboutUs.jsp">About us</a></li>
-				    <li><a  href="${pageContext.request.contextPath}/Gallery.jsp">Gallery</a></li>
-				    <li><a  href="${pageContext.request.contextPath}/Services.jsp">Services</a></li>
-				    <li><a  href="${pageContext.request.contextPath}/Events.jsp">Events</a></li>
-				    <li><a  href="${pageContext.request.contextPath}/ContactUs.jsp">Contact Us</a></li>
-			        <li><a  href="${pageContext.request.contextPath}/SignUp.jsp">Sign Up</a></li>
+				    <li><a id="homePage"  href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
+				    <li><a id="aboutUsPage" href="${pageContext.request.contextPath}/AboutUs.jsp">About us</a></li>
+				    <li><a id="galleryPage"  href="${pageContext.request.contextPath}/Gallery.jsp">Gallery</a></li>
+				    <li><a id="servicesPage" href="${pageContext.request.contextPath}/Services.jsp">Services</a></li>
+				    <li><a id="eventsPage" href="${pageContext.request.contextPath}/Events.jsp">Events</a></li>
+				    <li><a id="contactUsPage" href="${pageContext.request.contextPath}/ContactUs.jsp">Contact Us</a></li>
+			        <li><a id="signUpPage" href="${pageContext.request.contextPath}/SignUp.jsp">Sign Up</a></li>
 			    </ul>
     
 		    </div> 

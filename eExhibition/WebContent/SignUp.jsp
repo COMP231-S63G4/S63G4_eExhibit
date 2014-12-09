@@ -42,7 +42,9 @@
 </head>
 <body>
  <%@ include file="bannerTop.jsp" %> 
- 
+ <script>
+						$("#signUpPage").addClass("current");
+</script>
 
 <div style="text-align: left;margin-left:100px;margin-right:100px">
 

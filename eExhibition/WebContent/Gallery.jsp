@@ -8,10 +8,10 @@
 		<title>Gallery</title>
 			<link href="${pageContext.request.contextPath}/styles/stylesheet.css" rel="stylesheet" type="text/css" />
 			<script type="text/javascript" src="${pageContext.request.contextPath}/jQuery.js"></script>
-			<script src="${pageContext.request.contextPath}/javascripts/javascript.js"></script>
+			<script src="${pageContext.request.contextPath}/javascript/javascript.js"></script>
 			
-			 <script src="zoomSlider.js" type="text/javascript"></script>
-    <link href="zoomslider.css" rel="stylesheet" type="text/css" />
+			 <script src="${pageContext.request.contextPath}/javascript/zoomSlider.js" type="text/javascript"></script>
+    <link href="${pageContext.request.contextPath}/styles/zoomSlider.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         body {background:#EEE;padding-top:50px;font:normal 12px Arial;}
         .nav {width:840px; margin:0 auto;margin-top:-10px;}
@@ -20,6 +20,9 @@
 	</head><!--end of head-->
 			<body><!--starting of body-->
 					<%@ include file="bannerTop.jsp" %> 
+					<script>
+						$("#galleryPage").addClass("current");
+</script>
 							<div id="content_area1">
 							<div class="bottom_panel_section">
 									<div class="news_section">

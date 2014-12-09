@@ -48,6 +48,7 @@
   
   <body style="text-align:center;">
   <%@ include file="bannerTop.jsp" %> 
+ 
     Welcome Admin !!!<br>
     <c:if test="${requestScope.passChanged!='' || requestScope.passChanged!=null}">
 		        <div style="color:red;position:absolute;right:40px;top:10px;z-index: 1;"><c:out value="${requestScope.passChanged}"></c:out></div>

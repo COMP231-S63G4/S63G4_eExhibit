@@ -13,6 +13,9 @@
 	</head><!--end of head-->
 			<body><!--starting of body-->
 					 <%@ include file="bannerTop.jsp" %> 
+					 <script>
+						$("#contactUsPage").addClass("current");
+</script>
 					<div id="ContactLeft">
                       <fieldset>
     <legend>

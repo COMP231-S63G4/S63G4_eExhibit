@@ -12,7 +12,9 @@
 	</head><!--end of head-->
 			<body><!--starting of body-->
 			<%@ include file="bannerTop.jsp" %> 
-							
+							<script>
+						$("#servicesPage").addClass("current");
+</script>
 					
 							  
         

@@ -13,6 +13,9 @@
 
 	<body>
 	<%@ include file="bannerTop.jsp" %> 
+	 <script>
+						$("#homePage").addClass("current");
+</script>
 			    <div id="leftside">
 			            <div id="slider">
 					    <a href="#" class="control_next"></a>
