@@ -34,6 +34,7 @@
 		<th><c:out value="${event.value.getEndDate()}"></c:out></th>
 		<th><c:out value="${event.value.getEventOrganizers()}"></c:out></th>
 		
+		
 		</tr>
 		
 	

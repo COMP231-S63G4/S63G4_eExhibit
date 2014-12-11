@@ -20,7 +20,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import eExhibition.data.classes.Event;
 import eExhibition.data.classes.Notification;
+import eExhibition.model.classes.exhibitorManager;
 import eExhibition.model.classes.loginManager;
 import eExhibition.model.classes.notificationManager;
 
@@ -62,6 +64,7 @@ public class loginServlet extends HttpServlet {
 
 		RequestDispatcher rd = null;
 		loginManager lm = loginManager.getInstance();
+		exhibitorManager em=exhibitorManager.getInstance();
 		notificationManager nm = notificationManager.getInstance();
 		String type = lm.validateLoginDetails(name ,pass);
 		if (type != null) {
@@ -86,6 +89,8 @@ public class loginServlet extends HttpServlet {
 				rd = request.getRequestDispatcher("/OrganiserHomePage.jsp");
 
 			} else if (type.equals("exbt")) {
+				Map<String,Event> events=em.getAllExhibitorEvents(name);
+				request.setAttribute("events", events);
 				rd = request.getRequestDispatcher("/ExhibitorHomePage.jsp");
 
 			} else if (type.equals("rusr")) {

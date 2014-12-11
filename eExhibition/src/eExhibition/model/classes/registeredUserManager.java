@@ -33,7 +33,7 @@ public class registeredUserManager implements registeredUserCatalog {
 		try {
 				    
 					Class.forName("com.mysql.jdbc.Driver");				
-					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 				    Statement st=con.createStatement();
 					st.executeUpdate("Insert into login(uname,password,type) values('"+registeredUser.getUserId()+"','"+password+"','rusr')");
 					st.executeUpdate("Insert into users(uname,name,email,phone,address) values('"+registeredUser.getUserId()+
@@ -62,7 +62,7 @@ public class registeredUserManager implements registeredUserCatalog {
 		try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 		    Statement st=con.createStatement();
 			st.executeUpdate("Insert into reportedContent='"+product.getProductId()+"',password='"+description+"' where uname='"+userId+"'");
 			
@@ -87,7 +87,7 @@ public class registeredUserManager implements registeredUserCatalog {
 		try {
 				    
 					Class.forName("com.mysql.jdbc.Driver");				
-					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 				    Statement st=con.createStatement();
 					st.executeUpdate("Update login set uname='"+registeredUser.getUserId()+"',password='"+password+"' where uname='"+oldUserId+"'");
 					st.executeUpdate("Update users set uname='"+registeredUser.getUserId()+"',name='"+registeredUser.getName()+"',email='"+registeredUser.getEmail()+"',phone='"+registeredUser.getPhone()+"',address='"+registeredUser.getaddress()+"' where uname='"+oldUserId+"'");
@@ -112,7 +112,7 @@ public class registeredUserManager implements registeredUserCatalog {
 		try {
 			    
 				Class.forName("com.mysql.jdbc.Driver");				
-				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			    Statement st=con.createStatement();
 				
 				ResultSet rs=st.executeQuery("Select uname,name,address,phone,email from users where uname='"+uname+"'");

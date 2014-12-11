@@ -40,7 +40,7 @@ public class notificationManager implements notificationCatalog {
 
 			Class.forName("com.mysql.jdbc.Driver");
 			java.sql.Connection con = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+					"jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			Statement st = con.createStatement();
 			st.executeUpdate("Insert into notification(uname,notification,date,status) values('"
 					+ uname
@@ -75,7 +75,7 @@ public class notificationManager implements notificationCatalog {
 
 			Class.forName("com.mysql.jdbc.Driver");
 			java.sql.Connection con = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+					"jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			Statement st = con.createStatement();
 			ResultSet rs = st
 					.executeQuery("Select uname,notification,date from notification where uname='"
@@ -122,7 +122,7 @@ public class notificationManager implements notificationCatalog {
 
 			Class.forName("com.mysql.jdbc.Driver");
 			java.sql.Connection con = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+					"jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			Statement st = con.createStatement();
 			st.executeUpdate("Insert into notification(uname,notification,date,status) values('"
 					+ userId

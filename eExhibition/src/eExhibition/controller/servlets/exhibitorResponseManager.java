@@ -170,8 +170,17 @@ public class exhibitorResponseManager extends HttpServlet {
 					
 			rd = request.getRequestDispatcher("/viewEventsForExhibitor.jsp");
 		}
-
+		
+		
+		else if(action.equals("View Event Page"))
+		{
+			String uname=(String) session.getAttribute("userName");
+		
+			String eventid=request.getParameter("eventid");
+			rd = request.getRequestDispatcher("/EventPage.jsp");
+					
 	
+		}
 		 
 		else if(action.equals("Update Exhibitor"))
 		 {

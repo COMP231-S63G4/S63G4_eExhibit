@@ -34,7 +34,7 @@ public class adminManager implements adminCatalog {
 		try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 		    Statement st=con.createStatement();
 			res=st.executeUpdate("Update login set uname='"+uname+"',password='"+password+"' where type='admn'");
 		 
@@ -62,7 +62,7 @@ public class adminManager implements adminCatalog {
 		try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 		    Statement st=con.createStatement();
 			loginOk=st.executeUpdate("Insert into login(uname,password,type) values('"+organiser.getUserId()+"','"+password+"','orgn')");
 			userOk=st.executeUpdate("Insert into users(uname,name,email,phone,address) values('"+organiser.getUserId()+"','"+organiser.getName()+"','"+organiser.getEmail()+"','"+organiser.getPhone()+"','"+organiser.getaddress()+"')");
@@ -92,7 +92,7 @@ public class adminManager implements adminCatalog {
 		try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 		    Statement st=con.createStatement();
 			st.executeUpdate("Update login set uname='"+organiser.getUserId()+"',password='"+password+"' where uname='"+oldUserId+"'");
 			st.executeUpdate("Update users set uname='"+organiser.getUserId()+"',name='"+organiser.getName()+"',email='"+organiser.getEmail()+"',phone='"+organiser.getPhone()+"',address='"+organiser.getaddress()+"' where uname='"+oldUserId+"'");
@@ -117,7 +117,7 @@ public class adminManager implements adminCatalog {
 		try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 		    Statement st=con.createStatement();
 		    
 			st.executeUpdate("Delete from reportedcontent where productid='"+productid+"' and userid='"+userid+"'");
@@ -138,7 +138,7 @@ public class adminManager implements adminCatalog {
 		try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 		    Statement st=con.createStatement();
 		    deletedOrganiser=getOrganiser(uname);
 			st.executeUpdate("Delete from login where uname='"+uname+"'");
@@ -165,7 +165,7 @@ public class adminManager implements adminCatalog {
 		try {
 			    
 				Class.forName("com.mysql.jdbc.Driver");				
-				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			    Statement st=con.createStatement();
 				
 				ResultSet rs=st.executeQuery("Select uname from login where type='"+type+"'");
@@ -193,7 +193,7 @@ public class adminManager implements adminCatalog {
 		try {
 			    
 				Class.forName("com.mysql.jdbc.Driver");				
-				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			    Statement st=con.createStatement();
 				
 				ResultSet rs=st.executeQuery("Select users.uname,name,address,phone,email from users,login where users.uname=login.uname and type='"+type+"' and users.uname like '%"+uname+"%'");
@@ -220,7 +220,7 @@ public class adminManager implements adminCatalog {
 		try {
 			    
 				Class.forName("com.mysql.jdbc.Driver");				
-				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			    Statement st=con.createStatement();
 				
 				ResultSet rs=st.executeQuery("Select productid,description,userid from reportedcontent ");
@@ -249,7 +249,7 @@ public class adminManager implements adminCatalog {
 		try {
 			    
 				Class.forName("com.mysql.jdbc.Driver");				
-				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			    Statement st=con.createStatement();
 				
 				ResultSet rs=st.executeQuery("Select users.uname,name,address,phone,email from users,login where users.uname=login.uname and type='"+type+"' ");
@@ -279,7 +279,7 @@ public class adminManager implements adminCatalog {
 		try {
 			    
 				Class.forName("com.mysql.jdbc.Driver");				
-				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			    Statement st=con.createStatement();
 				
 				ResultSet rs=st.executeQuery("Select uname,name,address,phone,email from users where uname='"+uname+"'");
@@ -309,7 +309,7 @@ public class adminManager implements adminCatalog {
 		try {
 			    
 				Class.forName("com.mysql.jdbc.Driver");				
-				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			    Statement st=con.createStatement();
 				
 				ResultSet rs=st.executeQuery("Select uname,password,type from login where uname='"+uname+"'");

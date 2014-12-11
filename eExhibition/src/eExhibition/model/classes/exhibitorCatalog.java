@@ -9,6 +9,7 @@ public interface exhibitorCatalog {
 	public User updateExhibitorDetail(User exhibitor, String oldUserId,	String password);
 	public User getExhibitor(String uname);
 	public Map<String,Event> getAllOtherEvents(String exhibitoruname);
+	public Map<String,Event> getAllExhibitorEvents(String exhibitoruname);
 	public boolean registerToParticipate(String uname,String eventId, String description);
 	
 	

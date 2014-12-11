@@ -11,13 +11,13 @@ import eExhibition.data.classes.User;
 public interface eventCatalog {
 	
 	
-	public Map<String,Event> getAllEvents();
+	public Map<String,Event> getAllEvents();//GET ALL Events
 	public Event getEventById(String eventId);
 	public Event addEvent(Event newEvent);
 	public Event updateEvent(Event changedEvent);
 	public Event deleteEvent(Event event);
 	public boolean eventIdExists(String eventid);
-	public Product addProductEvent(Product newProduct);//?? For which event?	
+	
 	public boolean productIdExists(String productid);//Ambiguous--
 	public Product addProduct(Product product);
 	public Product getProductById(String productId);

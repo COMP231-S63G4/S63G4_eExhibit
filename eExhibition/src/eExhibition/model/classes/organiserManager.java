@@ -41,7 +41,7 @@ public class organiserManager implements organiserCatalog {
 		try {
 				    
 					Class.forName("com.mysql.jdbc.Driver");				
-					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 				    Statement st=con.createStatement();
 					st.executeUpdate("Update login set uname='"+organiser.getUserId()+"',password='"+password+"' where uname='"+oldUserId+"'");
 					st.executeUpdate("Update users set uname='"+organiser.getUserId()+"',name='"+organiser.getName()+"',email='"+organiser.getEmail()+"',phone='"+organiser.getPhone()+"',address='"+organiser.getaddress()+"' where uname='"+oldUserId+"'");
@@ -66,7 +66,7 @@ public class organiserManager implements organiserCatalog {
 		try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 		    Statement st=con.createStatement();
 		    ResultSet rs=st.executeQuery("Select eventid,eventname,details,location,startdate,enddate,eventorganisers from events");
 		    while(rs.next())
@@ -102,7 +102,7 @@ public class organiserManager implements organiserCatalog {
 try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 		    Statement st=con.createStatement();
 		    ResultSet rs=st.executeQuery("Select eventid,eventname,details,location,startdate,enddate,eventorganisers from events where eventid='"+id+"'");
 		    while(rs.next())
@@ -135,7 +135,7 @@ try {
 		try {
 			    
 				Class.forName("com.mysql.jdbc.Driver");				
-				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			    Statement st=con.createStatement();
 				
 				ResultSet rs=st.executeQuery("Select users.uname,name,address,phone,email from users,login where users.uname=login.uname and type='exbt'");
@@ -161,7 +161,7 @@ try {
 		try {
 			    
 				Class.forName("com.mysql.jdbc.Driver");				
-				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			    Statement st=con.createStatement();
 				
 				ResultSet rs=st.executeQuery("Select uname,eventid,description from pendingrequest");
@@ -188,7 +188,7 @@ try {
 				try {
 					    
 						Class.forName("com.mysql.jdbc.Driver");				
-						java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+						java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 					    Statement st=con.createStatement();						
 						st.executeUpdate("Delete from pendingrequest where uname='"+ue.getUName()+"' and eventid='"+ue.getEventId()+"'");
 						if(action.equals("accept"))
@@ -219,7 +219,7 @@ try {
 		try {
 				    
 					Class.forName("com.mysql.jdbc.Driver");				
-					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 				    Statement st=con.createStatement();
 				    String notification;
 				    for(String exhibitor : exhibitorsUnames)
@@ -251,7 +251,7 @@ try {
 		try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 		    Statement st=con.createStatement();
 		    ResultSet rs=st.executeQuery("Select ");
 		    while(rs.next())
@@ -279,7 +279,7 @@ try {
 		try {
 		    
 			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 		    Statement st=con.createStatement();
 		    noOfSoldTickets=st.executeUpdate("Select COUNT(*) FROM ticket");
 						

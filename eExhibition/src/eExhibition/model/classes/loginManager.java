@@ -31,7 +31,7 @@ public class loginManager {
 		try {
 	    
 			Class.forName("com.mysql.jdbc.Driver");				
-			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+			java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 		    Statement st=con.createStatement();
 			ResultSet rs=st.executeQuery("select * from login");
 		 
@@ -62,7 +62,7 @@ public class loginManager {
 			try {
 			    
 				Class.forName("com.mysql.jdbc.Driver");				
-				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
 			    Statement st=con.createStatement();
 				ResultSet rs=st.executeQuery("select uname from login");
 			 
