@@ -1,5 +1,7 @@
 package eExhibition.data.classes;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -120,5 +122,17 @@ public class BiddingProduct{
 			}
 			public String getTopPrice3(){
 				return topPrice3;
+			}
+			public String getEndDateInString()
+			{
+				Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+				String s = formatter.format(endDate);
+				return s;
+			}
+			public String getStartDateInString()
+			{
+				Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+				String s = formatter.format(startDate);
+				return s;
 			}
 }

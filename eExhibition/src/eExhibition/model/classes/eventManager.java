@@ -43,7 +43,7 @@ private eventManager() {
 	    			try {
 	    			    
 	    				Class.forName("com.mysql.jdbc.Driver");				
-	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 	    			    Statement st=con.createStatement();
 	    			    ResultSet rs=st.executeQuery("Select eventid,eventname,details,location,startdate,enddate,eventorganisers from events");
 	    			    while(rs.next())
@@ -79,7 +79,7 @@ private eventManager() {
 	    			try {
 	    			    
 	    				Class.forName("com.mysql.jdbc.Driver");				
-	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 	    			    Statement st=con.createStatement();
 	    			    ResultSet rs=st.executeQuery("Select eventid,eventname,details,location,startdate,enddate,eventorganisers from events where eventid='"+id+"'");
 	    			    while(rs.next())
@@ -115,7 +115,7 @@ private eventManager() {
 	    			try {
 	    			    
 	    				Class.forName("com.mysql.jdbc.Driver");				
-	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 	    			    Statement st=con.createStatement();
 	    			    ResultSet rs=st.executeQuery("Select productid,producttitle,description,image,price,type,exhibitoruname,kind from products where productid='"+id+"'");
 	    			    while(rs.next())
@@ -143,7 +143,7 @@ private eventManager() {
 	    			try {
 	    			    
 	    				Class.forName("com.mysql.jdbc.Driver");				
-	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 	    			    Statement st=con.createStatement();
 	    				flag=st.executeUpdate("Insert into events(eventid,eventname,details,location,startdate,enddate,eventorganisers) values('"
 	    			    +newEvent.getEventId()+"','"+newEvent.getEventName()+"','"+newEvent.getDetails()+"','"+newEvent.getLocation()+"','"+newEvent.getStartDate()+"','"+newEvent.getEndDate()+"','"+newEvent.getEventOrganizers()+"')");
@@ -174,7 +174,7 @@ private eventManager() {
 	    			try {
 	    				    
 	    					Class.forName("com.mysql.jdbc.Driver");				
-	    					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+	    					java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 	    				    Statement st=con.createStatement();
 	    					
 	    					ResultSet rs=st.executeQuery("Select uname,name,address,phone,email from users where uname='"+userid+"' ");
@@ -205,7 +205,7 @@ private eventManager() {
 	    			    String eventcompare="";
 	    			    int flag=1;
 	    				Class.forName("com.mysql.jdbc.Driver");				
-	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 	    			    Statement st=con.createStatement();
 	    			    ResultSet rs=st.executeQuery("Select eventid,productid,startdate,enddate,startprice,closeprice,uname,uname2,topprice2,uname3,topprice3 from biddingproduct order by eventid");
 	    			    while(rs.next())
@@ -271,7 +271,7 @@ private eventManager() {
 	    			try {
 	    			    
 	    				Class.forName("com.mysql.jdbc.Driver");				
-	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 	    			    Statement st=con.createStatement();
 	    				flag=st.executeUpdate("Update events set eventname='"+
 	    			    changedEvent.getEventName()+"',details='"+changedEvent.getDetails()+"',location='"+changedEvent.getLocation()
@@ -303,7 +303,7 @@ private eventManager() {
 	    			try {
 	    			    
 	    				Class.forName("com.mysql.jdbc.Driver");				
-	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 	    			    Statement st=con.createStatement();
 	    				st.executeUpdate("Delete from events where eventid='"+event.getEventId()+"'");
 	    				
@@ -325,7 +325,7 @@ private eventManager() {
 	    			try {
 	    			    
 	    				Class.forName("com.mysql.jdbc.Driver");				
-	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 	    			    Statement st=con.createStatement();
 	    				ResultSet rs=st.executeQuery("select eventid from events");
 	    			 
@@ -356,7 +356,7 @@ private eventManager() {
 	    			try {
 	    			    
 	    				Class.forName("com.mysql.jdbc.Driver");				
-	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 	    			    Statement st=con.createStatement();
 	    				st.executeUpdate("Insert into products(productid,producttitle,description,image,price,type,exhibitoruname,kind) "
 	    						+ "values('"+product.getProductId()+"','"+product.getProductTitle()+"','"+product.getDescription()+"'"
@@ -386,7 +386,7 @@ private eventManager() {
 try {
 				    			    
 				    				Class.forName("com.mysql.jdbc.Driver");				
-	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+	    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 	    			    Statement st=con.createStatement();
 	    				ResultSet rs=st.executeQuery("select productid from products");
 	    			 
@@ -420,7 +420,7 @@ try {
 				    			try {
 				    			    
 				    				Class.forName("com.mysql.jdbc.Driver");				
-				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 				    			    Statement st=con.createStatement();
 				    			    ResultSet rs=st.executeQuery("Select soldproducts.eventid,soldproducts.productid,buyeruname from soldproducts");
 				    			    while(rs.next())
@@ -451,7 +451,7 @@ try {
 				    			try {
 				    				
 				    				Class.forName("com.mysql.jdbc.Driver");				
-				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 				    			    Statement st=con.createStatement();
 				    				flag=st.executeUpdate("Update products set productTitle='"+
 				    						changedProduct.getProductTitle()+"',description='"+changedProduct.getDescription()+"',image='"+changedProduct.getImage()
@@ -487,7 +487,7 @@ try {
 				    			try {
 				    			    
 				    				Class.forName("com.mysql.jdbc.Driver");				
-				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+				    				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 				    			    Statement st=con.createStatement();
 				    			    ResultSet rs=st.executeQuery("Select productId,productTitle,description,image,price,type,exhibitorUname,kind from products");
 				    			    while(rs.next())

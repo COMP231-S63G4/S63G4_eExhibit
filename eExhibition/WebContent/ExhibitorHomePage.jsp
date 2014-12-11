@@ -56,42 +56,29 @@
 	    
 <fieldset style="margin-left:50px;margin-right:50px">
 <legend>
-<h1 style="color:white;">Your Current Events</h1></legend>
+<h2 style="color:white;">Your Current Events</h2></legend>
 <table border="1" align="center" style="color:white">
-<tr>
-<th>Event Name</th>
-</tr>
 
+<tr>
 <c:forEach items="${requestScope.events}" var="event">
-	
+	<td>
 	<form action="${pageContext.request.contextPath}/exhibitorResponseManager" method="post">
 	
-		<tr>
 		
-		 <th> <div class="eventClick"><img  src="${pageContext.request.contextPath}/images/eventIcon.gif" style="height:50px;width:50px"/><br>
+		
+		  <div ><img src="${pageContext.request.contextPath}/images/eventIcon.gif" style="height:50px;width:50px"/><br/>
 		 <input type="hidden" name="eventId" value="${event.key}"/>
-		<c:out value="${event.value.getEventName()}"></c:out>
-		</div>
-		<script>
-			$(".eventClick").click(function(){
-				$(this).parent().child().find(".submitBtn").trigger("click");	
-				});
-			$(".submitBtn").click(function(){
-				alert("I am ok");
-				});
-		</script>
-		<input class="submitBtn" name="action" style="display:none;"/>
-		</th>
-		<th>
-		<input  class="submitBtn" name="action" value="View Event Page"/>
-		</th>
-	
-		</tr>
+		<%-- <c:out value="${event.value.getEventName()}"></c:out> --%>
+		
+		
+		<input  type="submit" name="action" value="${event.value.getEventName()}"/>
+		
+			</div>
 		
 	</form>
-	
+	</td>
 </c:forEach>
-
+</tr>
 
 
 </table>

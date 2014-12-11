@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,8 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import eExhibition.data.classes.BiddingProduct;
 import eExhibition.data.classes.Event;
 import eExhibition.data.classes.ExhibitorEvent;
+import eExhibition.data.classes.Product;
 import eExhibition.data.classes.User;
 import eExhibition.model.classes.adminManager;
 import eExhibition.model.classes.eventManager;
@@ -74,6 +77,10 @@ public class exhibitorResponseManager extends HttpServlet {
 		organiserManager om=organiserManager.getInstance();
 		exhibitorManager em=exhibitorManager.getInstance();
 		eventManager evm=eventManager.getInstance();
+		Map<String,Event> eventsName=em.getAllExhibitorEvents(session.getAttribute("userName").toString());
+		
+		Set<String> eventnams = eventsName.keySet();
+		String[] eventnames=eventnams.toArray(new String[eventnams.size()]);;
 		
 		if(action.equals("My Details"))
 		{
@@ -236,7 +243,27 @@ public class exhibitorResponseManager extends HttpServlet {
 			
 			
 		}
-		
+		else{
+			
+			for(int i=0;i<eventnames.length;i++)
+			{
+				Event e=(eventsName.get(eventnames[i]));
+				if(action.equals( e.getEventName())  )
+						{
+							String eventid=eventnames[i];
+							request.setAttribute("eventid", eventid);
+							
+							request.setAttribute("eventname", e.getEventName());
+							ArrayList<Product> products=em.getAllProductsOtherThanBiddingProducts((String) session.getAttribute("userName"));
+							log("JAGRAJ SIDHU :"+products.size());
+							ArrayList<BiddingProduct> bidProducts=em.getAllBiddingProducts((String) session.getAttribute("userName"), eventid);
+							request.setAttribute("products", products);
+							request.setAttribute("bidproducts", bidProducts);
+							rd=request.getRequestDispatcher("/exhibitorProducts.jsp");
+						}
+			}
+			
+		}
 		rd.forward(request, response);
 		
 	}

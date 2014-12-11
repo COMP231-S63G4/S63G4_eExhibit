@@ -108,7 +108,15 @@ public class registeredUserResponseManager extends HttpServlet {
 								
 			rd = request.getRequestDispatcher("/biddingProductsAllEvents.jsp");
 		}
+		else if(action.equals("View All Products"))
+		{
+			
 		
+			ArrayList<Product> products=rm.getAllProducts();
+			/*log("JAGRAJ SIDHU :"+products.size());*/
+			request.setAttribute("products", products);
+			rd=request.getRequestDispatcher("/showAllProducts.jsp");
+		}
 		else if(action.equals("My Bid"))
 		{
 			String earlierTopUser=(String) request.getAttribute("top1");

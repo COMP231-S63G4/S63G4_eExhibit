@@ -54,9 +54,10 @@
 			    
 			    <td><input   class="viewEvents" value="">
 			    <br/><input type="Submit" name="action"  value="View All Events"/></td>
-			    
-			      <td><input   class="viewBiddingProducts" value="">
+			     <td><input   class="viewBiddingProducts" value="">
 			    <br/><input type="Submit" name="action"  value="View Bidding Products"/></td>
+			    <td><input   class="viewBiddingProducts" value="">
+			    <br/><input type="Submit" name="action"  value="View All Products"/></td>
 			    
 			    </tr>		    
 			    			     

@@ -4,12 +4,13 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import eExhibition.data.classes.BiddingProduct;
 import eExhibition.data.classes.Product;
 import eExhibition.data.classes.User;
 
-public class biddingManager implements registeredUserCatalog {
+public class biddingManager implements biddingCatalog {
 	private static biddingManager em = null;	
 
 	public synchronized static biddingManager getInstance() {
@@ -35,7 +36,7 @@ public class biddingManager implements registeredUserCatalog {
 		try {
 			    
 				Class.forName("com.mysql.jdbc.Driver");				
-				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "password");
+				java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/eexhibition", "root", "admin");
 			    Statement st=con.createStatement();
 				
 				ResultSet rs=st.executeQuery("Select uname,name,address,phone,email from users where uname='"+uname+"'");
@@ -65,27 +66,5 @@ public class biddingManager implements registeredUserCatalog {
 
 
 
-	@Override
-	public User addRegisteredUser(User registeredUser, String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-	@Override
-	public User updateRegisteredUserDetail(User registeredUser,
-			String oldUserId, String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-	@Override
-	public Product reportedContent(Product product) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 }
